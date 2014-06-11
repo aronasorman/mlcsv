@@ -37,6 +37,8 @@ let playlist_to_json {title; entries; id} =
              ("id", `String id);
              ("entries", entries_to_json)]
 
+let playlists_to_json_list l = List.map ~f:playlist_to_json l
+
 (*  *)
 (* Functions for reading the CSV into a list of playlists *)
 (*  *)
@@ -75,17 +77,25 @@ let parse_ir_list_to_playlists ir_list =
   let accum, rest = parse_first_entry_as_playlist ir_list
   in List.fold ~init:accum ~f:parse_ir_to_playlist rest |> reverse_playlists_to_proper_order
 
-let parse_csv_to_playlists csv_path =
-  Csv.load csv_path |> parse_csv_to_ir |> parse_ir_list_to_playlists
+let parse_csv_to_json csv_path =
+  Csv.load csv_path |> parse_csv_to_ir |> parse_ir_list_to_playlists |> playlists_to_json_list
 
 (*  *)
-(* Main function to kick things off and bring it all together *)
+(* Main functions to kick things off and bring it all together *)
 (*  *)
-let main () = parse_csv_to_playlists "data/grade3.csv"
-              |> List.map ~f:playlist_to_json
-              |> (fun l -> `List l)
-              |> Yojson.Basic.pretty_to_string
-              |> print_string
-              |> print_newline
+let main () =
+  let grade3_playlist_json = parse_csv_to_json "data/grade3.csv" in
+  let grade4_playlist_json = parse_csv_to_json "data/grade4.csv" in
+  let grade5_playlist_json = parse_csv_to_json "data/grade5.csv" in
+  let grade6_playlist_json = parse_csv_to_json "data/grade6.csv"
+  in List.concat [grade3_playlist_json;
+                  grade4_playlist_json;
+                  grade5_playlist_json;
+                  grade6_playlist_json;]
+     |> (fun l -> `List l)
+     |> Yojson.Basic.pretty_to_string
+     |> print_string
+     |> print_newline
 
-let () = main ()
+
+let () = if !Sys.interactive then () else main ()
