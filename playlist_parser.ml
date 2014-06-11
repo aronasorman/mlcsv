@@ -10,6 +10,7 @@ type playlist_entry =
 
 type playlist = { title: string;
                   id: string;
+                  tag: string;
                   entries: playlist_entry list;
                 }
 
@@ -44,6 +45,7 @@ let playlists_to_json_list l = List.map ~f:playlist_to_json l
 (*  *)
 let parse_broken_line_to_ir kind title id =
   if contains title "Playlist" then `Playlist (id, title)
+             ("tag", `String tag);
   else if contains kind "Playlist" then `Playlist (id, title)
   else if contains kind "Video" then `Video title
   else if contains kind "Exercise" then `Exercise title
@@ -58,15 +60,14 @@ let parse_csv_line_to_ir (line: string list) =
 
 let parse_csv_to_ir (csv: Csv.t) = List.map ~f:parse_csv_line_to_ir csv
                                    |> List.filter ~f:(fun x -> not (x = `Blank))
-
 (* Now we turn our IR into the playlist data structure *)
-let parse_ir_list_to_playlists ir_list =
+let parse_ir_list_to_playlists tag ir_list =
   let parse_first_entry_as_playlist (pl :: ir_list) =
     match pl with
-    | `Playlist (id, title) -> ({ id = id; title = title; entries = []} :: [], ir_list)
+    | `Playlist (id, title) -> ({ id = id; title = title; entries = []; tag = tag } :: [], ir_list)
     | _                     -> raise (Invalid_csv "First non-blank entry is not a playlist description") in
   let parse_ir_to_playlist (current_playlist :: playlists) = function
-    | `Playlist (id, title) -> { id = id; title = title; entries = []} :: current_playlist :: playlists
+    | `Playlist (id, title) -> { id = id; title = title; entries = []; tag = tag } :: current_playlist :: playlists
     | `Video title          -> { current_playlist with entries = (Video title :: current_playlist.entries) } :: playlists
     | `Exercise title       -> { current_playlist with entries = (Exercise title :: current_playlist.entries) } :: playlists
     | `Divider title        -> { current_playlist with entries = (Divider title :: current_playlist.entries) } :: playlists
@@ -77,17 +78,17 @@ let parse_ir_list_to_playlists ir_list =
   let accum, rest = parse_first_entry_as_playlist ir_list
   in List.fold ~init:accum ~f:parse_ir_to_playlist rest |> reverse_playlists_to_proper_order
 
-let parse_csv_to_json csv_path =
-  Csv.load csv_path |> parse_csv_to_ir |> parse_ir_list_to_playlists |> playlists_to_json_list
+let parse_csv_to_json csv_path tag =
+  Csv.load csv_path |> parse_csv_to_ir |> parse_ir_list_to_playlists tag |> playlists_to_json_list
 
 (*  *)
 (* Main functions to kick things off and bring it all together *)
 (*  *)
 let main () =
-  let grade3_playlist_json = parse_csv_to_json "data/grade3.csv" in
-  let grade4_playlist_json = parse_csv_to_json "data/grade4.csv" in
-  let grade5_playlist_json = parse_csv_to_json "data/grade5.csv" in
-  let grade6_playlist_json = parse_csv_to_json "data/grade6.csv"
+  let grade3_playlist_json = parse_csv_to_json "data/grade3.csv" "Grade 3" in
+  let grade4_playlist_json = parse_csv_to_json "data/grade4.csv" "Grade 4" in
+  let grade5_playlist_json = parse_csv_to_json "data/grade5.csv" "Grade 5" in
+  let grade6_playlist_json = parse_csv_to_json "data/grade6.csv" "Grade 6"
   in List.concat [grade3_playlist_json;
                   grade4_playlist_json;
                   grade5_playlist_json;
