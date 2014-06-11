@@ -42,6 +42,7 @@ let playlist_to_json {title; entries; id} =
 (*  *)
 let parse_broken_line_to_ir kind title id =
   if contains title "Playlist" then `Playlist (id, title)
+  else if contains kind "Playlist" then `Playlist (id, title)
   else if contains kind "Video" then `Video title
   else if contains kind "Exercise" then `Exercise title
   else if contains title "Quiz" then `Quiz id
