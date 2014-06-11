@@ -26,16 +26,26 @@ let contains s1 s2 =
 (*  *)
 (* Functions for serializing playlists to JSON *)
 (*  *)
-let playlist_entry_to_json = function
-  | Exercise s -> `Assoc [("entity_id", `String s); ("entity_kind", `String "Exercise")]
-  | Divider s -> `Assoc [("entity_id", `String s); ("entity_kind", `String "Divider")]
-  | Video s -> `Assoc [("entity_id", `String s); ("entity_kind", `String "Video")]
-  | Quiz -> `Assoc [("entity_id", `String "Quiz"); ("entity_kind", `String "Quiz")]
+let playlist_entry_to_json sort_order = function
+  | Exercise s -> `Assoc [("entity_id", `String s);
+                          ("sort_order",  `Int sort_order);
+                          ("entity_kind", `String "Exercise")]
+  | Divider s  -> `Assoc [("entity_id", `String s);
+                          ("sort_order", `Int sort_order);
+                          ("entity_kind", `String "Divider")]
+  | Video s    -> `Assoc [("entity_id", `String s);
+                          ("sort_order", `Int sort_order);
+                          ("entity_kind", `String "Video")]
+  | Quiz       -> `Assoc [("entity_id", `String "Quiz");
+                          ("sort_order", `Int sort_order);
+                          ("entity_kind", `String "Quiz")]
 
-let playlist_to_json {title; entries; id} =
-  let entries_to_json = `List (List.map ~f:playlist_entry_to_json entries)
+(* Convert a playlist to a JSON data structure that Yojson can accept. Add in the sort_order here too *)
+let playlist_to_json {title; entries; id; tag} =
+  let entries_to_json = `List (List.mapi ~f:playlist_entry_to_json entries)
   in `Assoc [("title", `String title);
              ("id", `String id);
+             ("tag", `String tag);
              ("entries", entries_to_json)]
 
 let playlists_to_json_list l = List.map ~f:playlist_to_json l
@@ -45,7 +55,6 @@ let playlists_to_json_list l = List.map ~f:playlist_to_json l
 (*  *)
 let parse_broken_line_to_ir kind title id =
   if contains title "Playlist" then `Playlist (id, title)
-             ("tag", `String tag);
   else if contains kind "Playlist" then `Playlist (id, title)
   else if contains kind "Video" then `Video title
   else if contains kind "Exercise" then `Exercise title
