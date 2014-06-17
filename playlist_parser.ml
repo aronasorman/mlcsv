@@ -154,6 +154,7 @@ let parse_csv_to_json csv_path tag =
 (* Main functions to kick things off and bring it all together *)
 (*  *)
 let main () =
+  Random.init 3
   let [grade3_playlist_json; grade3_exam_json] = parse_csv_to_json "data/grade3.csv" "Grade 3" in
   let [grade4_playlist_json; grade4_exam_json] = parse_csv_to_json "data/grade4.csv" "Grade 4" in
   let [grade5_playlist_json; grade5_exam_json] = parse_csv_to_json "data/grade5.csv" "Grade 5" in
