@@ -14,6 +14,13 @@ type playlist = { title: string;
                   entries: playlist_entry list;
                 }
 
+type exam = { title: string;
+              id: int;
+              seed: int;
+              playlist_ids: string list;
+              ids: string list;
+            }
+
 exception Unrecognized_line of string list
 exception Invalid_csv of string
 
