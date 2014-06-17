@@ -67,6 +67,7 @@ let parse_broken_line_to_ir kind title id =
   else if contains kind "Exercise" then `Exercise title
   else if contains title "Quiz" then `Quiz id
   else if contains title "Subtitle" then `Divider title
+  else if contains title "Unit Test" then `Exam (title, id)
   else `Blank
 
 let parse_csv_line_to_ir (line: string list) =
@@ -88,14 +89,54 @@ let parse_ir_list_to_playlists tag ir_list =
     | `Exercise title       -> { current_playlist with entries = (Exercise title :: current_playlist.entries) } :: playlists
     | `Divider title        -> { current_playlist with entries = (Divider title :: current_playlist.entries) } :: playlists
     | `Quiz _               -> { current_playlist with entries = (Quiz :: current_playlist.entries) } :: playlists
-    | `Blank                -> current_playlist :: playlists in
+    | `Blank                -> current_playlist :: playlists
+    | `Exam _               -> current_playlist :: playlists in
   let reverse_entries_to_proper_order pl = { pl with entries = List.rev pl.entries } in
   let reverse_playlists_to_proper_order pl_list = List.map ~f:reverse_entries_to_proper_order pl_list |> List.rev in
   let accum, rest = parse_first_entry_as_playlist ir_list
-  in List.fold ~init:accum ~f:parse_ir_to_playlist rest |> reverse_playlists_to_proper_order
+  in
+
+  List.fold ~init:accum ~f:parse_ir_to_playlist rest |> reverse_playlists_to_proper_order
+
+let parse_ir_list_to_exams ir_list =
+  let parse_exam_ids_to_string_list ids_str = Str.split (Str.regexp ",") ids_str |> List.map ~f:String.strip in
+  let parse_ir_to_exam exam_list = function
+    | `Exam (title, ids) -> { title = title;
+                              id = Random.int 2000;
+                              seed = Random.int 10000;
+                              playlist_ids = parse_exam_ids_to_string_list ids;
+                              ids = [];
+                            } :: exam_list
+    (* ignore everything else *)
+    | `Playlist _        -> exam_list
+    | `Video _           -> exam_list
+    | `Exercise _        -> exam_list
+    | `Divider _         -> exam_list
+    | `Quiz _            -> exam_list
+    | `Blank             -> exam_list
+  in
+
+  List.fold_left ~init:[] ~f:parse_ir_to_exam ir_list
+
+let exams_to_json_list exams =
+  let string_list_to_json_list l = `List (List.map ~f:(fun s -> `String s) l) in
+  let exam_to_json {title; id; seed; playlist_ids; ids} = `Assoc [("title", `String title);
+                                                                  ("id", `Int id);
+                                                                  ("seed", `Int seed);
+                                                                  ("playlist_ids", string_list_to_json_list playlist_ids);
+                                                                  ("ids", string_list_to_json_list ids);
+                                                                 ]
+  in
+
+  List.map ~f:exam_to_json exams
 
 let parse_csv_to_json csv_path tag =
-  Csv.load csv_path |> parse_csv_to_ir |> parse_ir_list_to_playlists tag |> playlists_to_json_list
+  let ir = Csv.load csv_path |> parse_csv_to_ir in
+  let playlist_json = ir |> parse_ir_list_to_playlists tag |> playlists_to_json_list in
+  let exam_json = ir |> parse_ir_list_to_exams |> exams_to_json_list
+  in
+
+  [`List playlist_json; `List exam_json]
 
 (*  *)
 (* Main functions to kick things off and bring it all together *)
