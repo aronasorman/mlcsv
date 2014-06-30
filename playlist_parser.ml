@@ -24,6 +24,7 @@ type exam = { title: string;
 
 exception Unrecognized_line of string list
 exception Invalid_csv of string
+exception Invalid_json_format of Yojson.Basic.json
 
 (* Substring check. Gahd i can't believe this isn't in the std lib *)
 let contains s1 s2 =
@@ -134,8 +135,8 @@ let populate_exam_ids (exam: exam) (playlists: playlist list) : exam =
 
 let exams_to_json_list exams =
   let string_list_to_json_list l = `List (List.map ~f:(fun s -> `String s) l) in
-  let exam_to_json {title; id; seed; playlist_ids; ids; repeats} = `Assoc [("title", `String title);
-                                                                           ("id", `Int id);
+  let exam_to_json {title; id; seed; playlist_ids; ids; repeats} = `Assoc [("id", `Int id);
+                                                                           ("title", `String title);
                                                                            ("seed", `Int seed);
                                                                            ("playlist_ids", string_list_to_json_list playlist_ids);
                                                                            ("repeats", `String repeats);
@@ -151,9 +152,30 @@ let parse_csv_to_json csv_path tag =
   let playlist_json = playlists |> playlists_to_json_list in
   let exams = ir |> parse_ir_list_to_exams |> List.map ~f:(fun e -> populate_exam_ids e playlists) in
   let exam_json = exams |> exams_to_json_list in
-  (* let exam_json = [] in *)
 
   [playlist_json; exam_json]
+
+let print_jsons l = `List l
+                    |> Yojson.Basic.pretty_to_string
+                    |> print_string
+                    |> print_newline
+
+
+let save_json_to_file j =
+  let save_json id =
+    let out = Printf.sprintf ("out/%d.json") id |> open_out in
+    Yojson.Basic.pretty_to_channel out j in
+
+  match j with
+  | `Assoc (("id", `Int id) :: _) -> save_json id
+  | _ -> raise (Invalid_json_format j)
+
+let save_jsons_to_file js = List.iter ~f:save_json_to_file js
+
+let save_to_playlist_file j =
+  let out = open_out "out/playlists.json" in
+
+  Yojson.Basic.pretty_to_channel out (`List j)
 
 (*  *)
 (* Main functions to kick things off and bring it all together *)
@@ -163,15 +185,12 @@ let main () =
   let [grade3_playlist_json; grade3_exam_json] = parse_csv_to_json "data/grade3.csv" "Grade 3" in
   let [grade4_playlist_json; grade4_exam_json] = parse_csv_to_json "data/grade4.csv" "Grade 4" in
   let [grade5_playlist_json; grade5_exam_json] = parse_csv_to_json "data/grade5.csv" "Grade 5" in
-  let [grade6_playlist_json; grade6_exam_json] = parse_csv_to_json "data/grade6.csv" "Grade 6"
-  in List.concat [grade3_exam_json;
-                  grade4_exam_json;
-                  grade5_exam_json;
-                  grade6_exam_json;]
-     |> (fun l -> `List l)
-     |> Yojson.Basic.pretty_to_string
-     |> print_string
-     |> print_newline
+  let [grade6_playlist_json; grade6_exam_json] = parse_csv_to_json "data/grade6.csv" "Grade 6" in
+  let playlist_jsons = List.concat [grade3_playlist_json; grade4_playlist_json; grade5_playlist_json; grade6_playlist_json;] in
+  let exam_jsons = List.concat [grade3_exam_json; grade4_exam_json; grade5_exam_json; grade6_exam_json;] in
+
+  save_to_playlist_file playlist_jsons;
+  save_jsons_to_file exam_jsons
 
 
 let () = if !Sys.interactive then () else main ()
