@@ -31,17 +31,19 @@ let contains s1 s2 =
   in try ignore (Str.search_forward re s1 0); true
      with Not_found -> false
 
+let sanitize_slug id = Str.split (Str.regexp "/") id |> List.last_exn
+
 (*  *)
 (* Functions for serializing playlists to JSON *)
 (*  *)
 let playlist_entry_to_json sort_order = function
-  | Exercise s -> `Assoc [("entity_id", `String s);
+  | Exercise s -> `Assoc [("entity_id", `String (sanitize_slug s));
                           ("sort_order",  `Int sort_order);
                           ("entity_kind", `String "Exercise")]
   | Divider s  -> `Assoc [("entity_id", `String s);
                           ("sort_order", `Int sort_order);
                           ("entity_kind", `String "Divider")]
-  | Video s    -> `Assoc [("entity_id", `String s);
+  | Video s    -> `Assoc [("entity_id", `String (sanitize_slug s));
                           ("sort_order", `Int sort_order);
                           ("entity_kind", `String "Video")]
   | Quiz       -> `Assoc [("entity_id", `String "Quiz");
@@ -124,7 +126,7 @@ let populate_exam_ids (exam: exam) (playlists: playlist list) : exam =
   let find_relevant_playlist id = try List.find_exn ~f:(fun p -> p.id = id) playlists with Not_found -> print_endline id; raise Not_found in
   let get_playlist_exercise_ids pl = List.filter ~f:(function Exercise _ -> true | _ -> false ) pl.entries
                                      |> List.map ~f:(function Exercise slug -> slug) in
-  let sanitize_exam_ids ids = List.map ~f:(fun id -> Str.split (Str.regexp "/") id |> List.last_exn) ids in
+  let sanitize_exam_ids ids = List.map ~f:sanitize_slug ids in
   let ids = List.map ~f:(fun pl_id -> (find_relevant_playlist pl_id |> get_playlist_exercise_ids)) exam.playlist_ids
             |> List.concat in
 
