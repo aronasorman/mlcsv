@@ -122,11 +122,11 @@ let populate_exam_ids (exam: exam) (playlists: playlist list) : exam =
   let find_relevant_playlist id = try List.find_exn ~f:(fun p -> p.id = id) playlists with Not_found -> print_endline id; raise Not_found in
   let get_playlist_exercise_ids pl = List.filter ~f:(function Exercise _ -> true | _ -> false ) pl.entries
                                      |> List.map ~f:(function Exercise slug -> slug) in
+  let sanitize_exam_ids ids = List.map ~f:(fun id -> Str.split (Str.regexp "/") id |> List.last_exn) ids in
   let ids = List.map ~f:(fun pl_id -> (find_relevant_playlist pl_id |> get_playlist_exercise_ids)) exam.playlist_ids
-            |> List.concat
-  in
+            |> List.concat in
 
-  {exam with ids = ids}
+  {exam with ids = sanitize_exam_ids ids}
 
 let exams_to_json_list exams =
   let string_list_to_json_list l = `List (List.map ~f:(fun s -> `String s) l) in
@@ -159,10 +159,10 @@ let main () =
   let [grade4_playlist_json; grade4_exam_json] = parse_csv_to_json "data/grade4.csv" "Grade 4" in
   let [grade5_playlist_json; grade5_exam_json] = parse_csv_to_json "data/grade5.csv" "Grade 5" in
   let [grade6_playlist_json; grade6_exam_json] = parse_csv_to_json "data/grade6.csv" "Grade 6"
-  in List.concat [grade3_playlist_json;
-                  grade4_playlist_json;
-                  grade5_playlist_json;
-                  grade6_playlist_json;]
+  in List.concat [grade3_exam_json;
+                  grade4_exam_json;
+                  grade5_exam_json;
+                  grade6_exam_json;]
      |> (fun l -> `List l)
      |> Yojson.Basic.pretty_to_string
      |> print_string
