@@ -18,6 +18,7 @@ type exam = { title: string;
               id: int;
               seed: int;
               playlist_ids: string list;
+              repeats: string;
               ids: string list;
             }
 
@@ -104,6 +105,7 @@ let parse_ir_list_to_exams ir_list =
     | `Exam (title, ids) -> { title = title;
                               id = Random.int 2000;
                               seed = Random.int 10000;
+                              repeats = "1";
                               playlist_ids = parse_exam_ids_to_string_list ids;
                               ids = [];
                             } :: exam_list
@@ -130,12 +132,13 @@ let populate_exam_ids (exam: exam) (playlists: playlist list) : exam =
 
 let exams_to_json_list exams =
   let string_list_to_json_list l = `List (List.map ~f:(fun s -> `String s) l) in
-  let exam_to_json {title; id; seed; playlist_ids; ids} = `Assoc [("title", `String title);
-                                                                  ("id", `Int id);
-                                                                  ("seed", `Int seed);
-                                                                  ("playlist_ids", string_list_to_json_list playlist_ids);
-                                                                  ("ids", string_list_to_json_list ids);
-                                                                 ]
+  let exam_to_json {title; id; seed; playlist_ids; ids; repeats} = `Assoc [("title", `String title);
+                                                                           ("id", `Int id);
+                                                                           ("seed", `Int seed);
+                                                                           ("playlist_ids", string_list_to_json_list playlist_ids);
+                                                                           ("repeats", `String repeats);
+                                                                           ("ids", string_list_to_json_list ids);
+                                                                          ]
   in
 
   List.map ~f:exam_to_json exams
