@@ -66,6 +66,7 @@ let playlists_to_json_list l = List.map ~f:playlist_to_json l
 (*  *)
 let parse_broken_line_to_ir kind title id =
   if contains title "Playlist" then `Playlist (id, title)
+  else if contains title "Baseline Exam" then `Exam (title, id)
   else if contains kind "Playlist" then `Playlist (id, kind)
   else if contains kind "Video" then `Video title
   else if contains kind "Exercise" then `Exercise title
