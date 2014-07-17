@@ -1,379 +1,383 @@
-Index,Link,Playlist ID,Essential/Optional (E/O)
-,,,
-,Baseline exam,"g5_p1, g5_p2, g5_p3, g5_p4, g5_p5, g5_p6, g5_p7, g5_p8, g5_p9, g5_p10, g5_p11, g5_p12, g5_p13, g5_p14, g5_p15, g5_p16, g5_p17, g5_p18, g5_p19, g5_p20, g5_p21",
-,,,
-,Playlist 1: Test of divisibility and prime numbers,g6_p1,E
-,Subtitle: Week 1,,
-Video 1,/v/divisibility-tests-for-2--3--4--5--6--9--10/,,E
-Video 2,/v/recognizing-divisibility/,,E
-Video 3,/v/the-why-of-the-3-divisibility-rule/,,E
-Video 4,/v/the-why-of-the-9-divisibility-rule/,,E
-Exercise 1,/e/divisibility_tests/,,E
-Video 5,/v/prime-numbers/,,E
-Video 6,/v/recognizing-prime-numbers/,,E
-Exercise 2,/e/composite_numbers/,,E
-,Subtitle: Week 2,,
-Video 7,/v/prime-factorization/,,E
-Video 8,/v/prime-factorization-exercise/,,E
-Video 9,/v/the-fundamental-theorem-of-arithmetic/,,E
-Video 10,/v/common-divisibility-examples/,,E
-Exercise 3,/e/prime_factorization/,,E
-Exercise 4,/e/the_fundamental_theorem_of_arithmetic/,,E
-Exercise 5,/e/divisibility/,,E
-,,,
-,Playlist 2: LCM and GCF,g6_p2,E
-,Subtitle: Week 3,,
-Video 1,/v/least-common-multiple-exercise/,,E
-Video 2,/v/least-common-multiple-exercise-2/,,E
-Video 3,/v/least-common-multiple--lcm/,,E
-Video 4,/v/least-common-multiple/,,E
-Exercise 1, /e/least_common_multiple/,,E
-Video 5,/v/greatest-common-divisor-factor-exercise/,,E
-Video 6,/v/greatest-common-divisor/,,E
-Video 7,/v/lcm-and-gcf-greatest-common-factor--word-problems/,,E
-Exercise 2,/e/greatest_common_divisor/,,E
-Exercise 3,/e/least_common_multiple_and_greatest_common_divisor_word_problems/,,E
-,Quiz 1,g6_p2_q1,E
-,,,
-,Playlist 3: Order of operations,g6_p3,E
-,Subtitle: Week 4,,
-Video 1,/v/constructing-numerical-expressions-example/,,E
-Video 2,/v/evaluating-an-expression-with-and-without-parentheses/,,E
-Video 3,/v/introduction-to-order-of-operations/,,E
-Video 4,/v/order-of-operations/,,E
-Exercise 1,/e/order_of_operations,,E
-,,,
-,Playlist 4: Commutative. distributive and associative properties,g6_p4,E
-,Subtitle: Week 5,,
-Video 1,/v/the-distributive-property/,,E
-Video 2,/v/the-distributive-property-2/,,E
-Exercise 1,/e/distributive_property/,,E
-Video 3,/v/commutative-law-of-addition/,,E
-Video 4,/v/commutative-property-for-addition/,,E
-Video 5,/v/commutative-law-of-multiplication/,,E
-Video 6,/v/associative-law-of-addition/,,E
-Video 7,/v/associative-law-of-multiplication/,,E
-,Quiz 2,g6_p4_q2,E
-,,,
-,Grade VI - Unit Test 1,"g6_p1, g6_p2, g6_p3, g6_p4",3
-,,,
-,Playlist 5: Write and identify a number using the base/index notation,g6_p5,E
-,Subtitle: Week 6,,
-Video 1,/v/introduction-to-exponents/,,E
-Video 2,/v/raising-a-number-to-the-0th-and-1st-power/,,E
-Video 3,/v/powers-of-1-and---1/,,E
-Video 4,/v/powers-of-fractions/,,E
-Video 5,/v/powers-of-zero/,,E
-Video 6,/v/understanding-exponents-2/,,E
-Video 7,/v/understanding-exponents/,,E
-Exercise 1,/e/exponents_1/,,E
-,Subtitle: Week 7,,
-Video 8,/v/exponent-rules-part-1/,,E
-Video 9,/v/exponent-rules-part-2/,,E
-Video 10,/v/exponent-properties-involving-quotients/,,E
-Exercise 2,/e/exponent_rules/,,E
-,Quiz 3,g6_p5_q3,E
-,,,
-,Playlist 6: Square and square roots,g6_p6,E
-,Subtitle: Week 8,,
-Video 1,/v/understanding-square-roots/,,E
-Video 2,/v/approximating-square-roots/,,E
-Video 3,/v/simplifying-square-roots-1/,,E
-Video 4,/v/simplifying-radicals/,,E
-Video 5,/v/square-roots-and-real-numbers/,,E
-Exercise 1,/e/square_roots/,,E
-Exercise 2,/e/square_roots_2/,,E
-Exercise 3,/e/simplifying_radicals/,,E
-Exercise 4,/e/multiplying_radicals/,,E
-,Quiz 4,g6_p6_q4,E
-,,,
-,Playlist 7: Integer and integer operations,g6_p7,E
-,Subtitle: Week 8,,E
-Video 1,/v/negative-numbers-introduction/,,E
-Video 2,/v/number-line-3-exercise-example/,,E
-Video 3,/v/ordering-negative-numbers/,,E
-Exercise 1,/e/number_line_2/,,E
-Exercise 2,/e/number_line_3/,,E
-Exercise 3,/e/ordering_negative_numbers/,,E
-Video 4,/v/adding-negative-numbers/,,E
-Video 5,/v/adding-integers-with-different-signs/,,E
-Video 6,/v/adding-and-subtracting-negative-number-examples/,,E
-,Subtitle: Week 9,,
-Video 7,/v/why-subtracting-a-negative-equivalent-to-adding-a-positive/,,E
-Video 8,/v/negative-number-word-problems-1/,,E
-Video 9,/v/u09-l1-t2-we4-adding-real-numbers-application/,,E
-Video 10,/v/adding-subtracting-negative-numbers/,,E
-Exercise 4, /e/adding_negative_numbers/,,E
-Exercise 5,/e/adding_and_subtracting_negative_numbers/,,E
-Exercise 6,/e/negative_number_word_problems/,,E
-Video 7,/v/multiplying-positive-and-negative-numbers/,,E
-Video 8,/v/why-a-negative-times-a-negative-is-a-positive/,,E
-Video 9,/v/why-a-negative-times-a-negative-makes-intuitive-sense/,,E
-Video 10,/v/dividing-positive-and-negative-numbers/,,E
-Video 11,/v/multiplying-negative-real-numbers/,,E
-Video 12,/v/multiplying-and-dividing-negative-numbers/,,E
-Exercise 7,/e/multiplying_and_dividing_negative_numbers/,,E
-,Quiz 5,g6_p7_q5,E
-,,,
-,Playlist 8: Interpret and draw bar graphs,g6_p8,E
-,Subtitle: Week 10,,
-Video 1,/v/reading-tables-1/,,E
-Video 2,/v/reading-tables-2/,,E
-Exercise 1, /e/reading_tables_1/,,E
-Exercise 2,/e/reading_tables_2/,,E
-Video 3,/v/u08-l1-t2-we3-stem-and-leaf-plots/,,E
-Video 4,/v/reading-stem-and-leaf-plots/,,E
-Exercise 3,/e/reading_stem_and_leaf_plots/,,E
-Video 5,/v/reading-pictographs/,,E
-Exercise 4,/e/reading_pictographs_1/,,E
-Exercise 5,/e/reading_pictographs_2/,,E
-,Subtitle: Week 11,,
-Video 6,v/reading-bar-graphs/,,E
-Video 7,/v/histograms/,,E
-Video 8,/v/reading-bar-charts-1/,,E
-Video 9,/v/creating-bar-charts-1/,,E
-Video 10,/v/reading-bar-charts-2/,,E
-Video 11,/v/reading-bar-charts-3/,,E
-Exercise 6,/e/reading_bar_charts_1/,,E
-Exercise 7,/e/creating_bar_charts_1/,,E
-Exercise 8,/e/reading_bar_charts_2/,,E
-Exercise 9,/e/reading_bar_charts_3/ ,,E
-Video 12,/v/u08-l1-t2-we2-reading-line-graphs/,,E
-Video 13,/v/reading-pie-graphs--circle-graphs/,,E
-,Quiz 6,g6_p8_q6,E
-,,,
-,Grade VI - Unit Test 2,"g6_p5, g6_p6, g6_p7, g6_p8",2
-,,,
-,Playlist 9: Perimeter and area of triangles,g6_p9,E
-,Subtitle: Week 12,,
-Video 1,/v/perimeter-and-area-basics/,,E
-Video 2,/v/triangle-area-proofs/,,E
-Video 3,/v/interesting-perimeter-and-area-problems/,,E
-Video 4,/v/area-of-diagonal-generated-triangles-of-rectangle-are-equal/,,E
-Video 5,/v/area-of-an-equilateral-triangle/,,E
-Video 6,/v/area-of-shaded-region-made-from-equilateral-triangles/,,E
-Exercise 1,/e/area_of_triangles_1/,,E
-Exercise 2,/e/shaded_areas/,,E
-,,,
-,Playlist 10: Perimeter and area of quadrilaterals,g6_p10,E
-,Subtitle: Week 13,,
-Video 1,/v/quadrilateral-overview/,,E
-Video 2,/v/quadrilateral-properties/,,E
-Video 3,/v/area-of-a-parallelogram/,,E
-Video 4,/v/area-of-a-trapezoid-1/,,E
-Video 5,/v/area-of-a-kite/,,E
-Video 6,/v/perimeter-of-a-polygon/,,E
-Video 7,/v/perimeter-and-area-of-a-non-standard-polygon/,,E
-Exercise 1,/e/area_of_parallelograms/,,E
-Exercise 2,/e/areas_of_trapezoids_rhombi_and_kites/,,E
-,Quiz 7,g6_p10_q7,E
-,,,
-,,,
-,,,
-,Playlist 11: Ratio and proportion,g6_p11,E
-,Subtitle: Week 14,,
-Video 1,/v/introduction-to-ratios--new-hd-version/,,E
-Video 2,/v/ratios-as-fractions-in-simplest-form/,,E
-Video 3,/v/simplifying-rates-and-ratios/,,E
-Video 4,/v/describing-ratios-exercise/,,E
-Exercise 1,/e/expressing_ratios_as_fractions/,,E
-Video 5, /v/ratio-word-problem-exercise-example-1/,,E
-Video 6,/v/ratio-word-problem-exercise-example-2/,,E
-,Subtitle: Week 15,,E
-Video 7,/v/understanding-proportions/,,E
-Video 8,/v/solving-ratio-problems-with-tables-exercise/,,E
-Video 9,/v/solving-ratio-problems-with-tables-exercise-2/,,E
-Video 10,/v/solving-ratio-problems-with-tables-exercise-3/,,E
-Exercise 2,/e/ratio_word_problems/,,E
-Video 11,/v/rational-number-word-problem-example-1/,,E
-Video 12,/v/rational-number-word-problem-example-2/,,E
-,,,
-,"Playlist 12: Find the missing quantity, when 2 out of 3 quantities are given (principal, rate of interest, period)",g6_p12,O
-,Subtitle: Week 16,,
-Video 1,/v/solving-percent-problems/,,O
-Video 2,/v/solving-percent-problems-2/,,O
-Video 3,/v/solving-percent-problems-3/,,O
-Video 4,/v/growing-by-a-percentage/,,O
-Exercise 1,/e/discount_tax_and_tip_word_problems/,,O
-Exercise 2,/e/markup_and_commission_word_problems/,,O
-,Quiz 8,g6_p12_q8,E
-,,,
-,Playlist 13: Overview and history of algebra,g6_p13,E
-,Subtitle: Week 17,,
-Video 1,/v/origins-of-algebra/,,E
-Video 2,/v/abstract-ness/,,E
-Video 3,/v/the-beauty-of-algebra/,,E
-Video 4,/v/descartes-and-cartesian-coordinates/,,E
-Video 5,/v/why-all-the-letters-in-algebra/,,E
-,,,
-,Grade VI - Unit Test 3,"g6_p11, g6_p12, g6_p13",4
-,,,
-,Playlist 14: The why of algebra,g6_p14,E
-Video 1, /v/why-we-do-the-same--thing-to-both-sides--simple-equations/,,E
-Video 2,/v/representing-a-relationship-with-a-simple-equation/,,E
-Video 3,/v/one-step-equation-intuition/,,E
-Video 4,/v/one-step-equation-intuition-exercise-intro/,,E
-Video 5,/v/adding-and-subtracting-the-same-thing-from-both-sides/,,E
-Video 6,/v/intuition-why-we-divide-both-sides/,,E
-,Subtitle: Week 18,,
-Video 7,/v/why-we-do-the-same--thing-to-both-sides--two-step-equations/,,E
-Video 8,/v/why-we-do-the-same--thing-to-both-sides-multi-step-equations/,,E
-Video 9,/v/why-we-do-the-same--thing-to-both-sides-basic-systems/,,E
-Video 10,/v/why-all-the-letters-in-algebra/,,E
-Exercise 1, /e/one_step_equation_intuition/,,E
-,Quiz 9,g6_p14_q9,E
-,,,
-,Playlist 15: Algebra-variables and expressions,g6_p15,E
-,Subtitle: Week 19,,
-Video 1,/v/what-is-a-variable/,,E
-Video 2,/v/why-aren-t-we-using-the-multiplication-sign/,,E
-Video 3,/v/variables-and-expressions-1/,,E
-Video 4,/v/evaluate-a-formula-using-substitution/,,E
-Exercise 1,/e/evaluating_expressions_1/,,E
-Video 5,/v/ca-algebra-i--number-properties-and-absolute-value/,,E
-Video 6,/v/properties-of-numbers-1/,,E
-Video 7,/v/number-properties-terminology-1/,,E
-Video 8,/v/identity-property-of-1/,,E
-,,,
-,Playlist 16: Determining length of a segment using algebra,g6_p16,E
-,Subtitle: Week 20,,
-Video 1,/v/segment-addition/,,E
-Exercise 1,/e/segment_addition/,,E
-Video 2,/v/midpoint-of-a-segment/,,E
-Exercise 2,/e/midpoint_of_a_segment/,,E
-Video 3,/v/challenging-perimeter-problem/,,E
-,Quiz 10,g6_p16_q10,E
-,,,
-,Playlist 17: Dividing decimals,g6_p17,E
-Video 1,v/dividing-completely-to-get-decimal-answer/,,E
-Video 2,/v/dividing-completely-to-get-decimal-answer-example-2/,,E
-Video 3,/v/dividing-a-decimal-by-a-whole-number/,,E
-Video 4,/v/dividing-a-whole-number-by-a-decimal/,,E
-Video 5,/v/dividing-decimals/,,E
-Video 6,/v/dividing-decimal/,,E
-Exercise 1,/e/dividing_decimals_0.5/,,E
-Exercise 1,/e/dividing_decimals_1/,,E
-Exercise 3,/e/dividing_decimals_2/,,E
-,,,
-,Playlist 18: Converting between fractions and decimals,g6_p18,E
-,Subtitle: Week 21,,
-Video 1,/v/converting-fractions-to-decimals--ex1/,,E
-Video 2,/v/converting-fractions-to-decimals--ex2/,,E
-Video 3,/v/converting-fractions-to-decimals/,,E
-Video 4,/v/converting-fractions-to-decimals-example/,,E
-Exercise 1,/e/converting_fractions_to_decimals/,,E
-Video 5,/v/decimals-and-fractions/,,E
-Video 6,/v/converting-decimals-to-fractions-1-ex-1/,,E
-Video 7,/v/converting-decimals-to-fractions-1-ex-2/,,E
-Video 8,/v/converting-decimals-to-fractions-1-ex-3/,,E
-Video 9,/v/converting-decimals-to-fractions-2-ex-1/,,E
-Video 10,/v/converting-decimals-to-fractions-2-ex-2/,,E
-Exercise 2,/e/converting_decimals_to_fractions_1/,,E
-Exercise 3,/e/converting_decimals_to_fractions_2/,,E
-,Quiz 11,g6_p18_q11,E
-,,,
-,Grade VI - Unit Test 4,"g6_p14, g6_p15, g6_p16, g6_p17, g6_p18",3
-,,,
-,Playlist 19: Percentages,g6_p19,E
-,Subtitle: Week 22,,
-Video 1,/v/describing-the-meaning-of-percent/,,E
-Video 2,/v/describing-the-meaning-of-percent-2/,,E
-Video 3,/v/representing-a-number-as-a-decimal--percent--and-fraction/,,E
-Video 4,/v/converting-decimals-to-percents--ex-1/,,E
-Video 5,/v/converting-decimals-to-percents--ex-2/,,E
-Video 6,/v/converting-percents-to-decimals--ex-1/,,E
-Video 7,/v/converting-percents-to-decimals--ex-2/,,E
-Video 8,/v/finding-percentages-example/,,E
-Video 9,/v/percent-word-problems/,,E
-Video 10,/v/taking-a-percentage-example/,,E
-Video 11,/v/identifying-percent-amount-and-base/,,E
-Video 12,/v/representing-a-number-as-a-decimal--percent--and-fraction-2/,,E
-Video 13,/v/ordering-numeric-expressions_DUP_3/ ,,E
-Exercise 1,/e/converting_decimals_to_percents/,,E
-Exercise 2,/e/converting_percents_to_decimals/,,E
-Exercise 3,/e/finding_percents/,,E
-Video 14,/v/growing-by-a-percentage/,,E
-Video 15,/v/solving-percent-problems/,,E
-Video 16,/v/solving-percent-problems-2/,,E
-Video 17,/v/solving-percent-problems-3/,,E
-Exercise 4,/e/discount_tax_and_tip_word_problems/,,E
-Exercise 5,/e/markup_and_commission_word_problems/,,E
-,Quiz 12,g6_p19_q12,E
-,,,
-,Playlist 20: Estimating and rounding decimals/decimal multiplication by 10,g6_p20,E
-,Subtitle: Week 23,,
-Video 1,/v/rounding-decimals/,,E
-Exercise 1,/e/rounding_numbers/,,E
-Video 2,/v/estimation-with-decimals/,,E
-Exercise 2,/e/estimation_with_decimals/,,E
-Video 3,/v/multiplying-a-decimal-by-a-power-of-10/,,E
-Video 4,/v/dividing-a-decimal-by-a-power-of-10/,,E
-Video 5,/v/dividing-decimals-2-1/,,E
-Exercise 3,/e/understanding_moving_the_decimal/,,E
-Exercise 4,/e/converting_fractions_to_decimals_0.5/,,E
-,Quiz 13,g6_p20_q13,E
-,,,
-,Playlist 21: Introduction to geometry,g6_p21,E
-,Subtitle: Week 24,,
-Video 1,/v/euclid-as-the-father-of-geometry/,,E
-Video 2,/v/language-and-notation-of-basic-geometry/,,E
-Video 3,/v/lines--line-segments--and-rays/,,E
-Video 4,/v/drawing-lines-exercise-example/,,E
-Video 5,/v/specifying-planes-in-three-dimensions/,,E
-Exercise 1,e/recognizing_rays_lines_and_line_segments/,,E
-Video 6,/v/the-golden-ratio/,,E
-Exercise 2,/e/points_lines_and_planes/,,E
-,,,
-,Playlist 22: Angles and types of angles,g6_p22,E
-,Subtitle: Week 25,,
-Video 1,/v/angles-at-the-intersection-of-two-lines/,,E
-Video 2,/v/using-algebra-to-find-the-measures-of-vertical-angles/,,E
-Video 3,/v/proof-vertical-angles-are-equal/,,E
-Video 4,/v/angles-formed-by-parallel-lines-and-transversals/,,E
-Video 5,/v/identifying-parallel-and-perpendicular-lines/,,E
-Video 6,/v/figuring-out-angles-between-transversal-and-parallel-lines/,,E
-Video 7,/v/using-algebra-to-find-measures-of-angles-formed-from-transversal/,,E
-Video 8,/v/ca-geometry--deducing-angle-measures/,,E
-Exercise 1, /e/vertical_angles/,,E
-Exercise 2, /e/vertical_angles_2/,,E
-Exercise 3,/e/congruent_angles/,,E
-Exercise 4,/e/parallel_lines_1/,,E
-Exercise 5,/e/parallel_lines_2/,,E
-Video 9,v/complementary-and-supplementary-angles/,,E
-Video 10,/v/complementary-and-supplementary-angles/,,E
-Video 11,/v/example-using-algebra-to-find-measure-of-supplementary-angles/,,E
-Exercise 6,/e/complementary_and_supplementary_angles/,,E
-Exercise 7,/e/angle_addition_postulate/,,E
-,Quiz 14,g6_p22_q14,E
-,,,
-,Grade VI - Unit Test 5,"g6_p19, g6_p20, g6_p21, g6_p22",2
-,,,
-,"Playlist 23: Angles, triangles and polygons-1",g6_p23,E
-,Subtitle: Week 26,,
-Video 1,/v/proof---sum-of-measures-of-angles-in-a-triangle-are-180/,,E
-Video 2,/v/triangle-angle-example-1/,,E
-Video 3,/v/triangle-angle-example-2/,,E
-Video 4,/v/proof---corresponding-angle-equivalence-implies-parallel-lines/,,E
-Exercise 1,/e/angles_1/,,E
-Exercise 2,/e/angles_2/,,E
-,Quiz 15,g6_p23_q15,E
-,,,
-,"Playlist 24: Angles, triangles and polygons-2",g6_p24,E
-Video 1,/v/finding-more-angles/,,E
-Video 2,/v/sum-of-interior-angles-of-a-polygon/,,E
-Video 3,/v/sum-of-the-exterior-angles-of-convex-polygon/,,E
-Exercise 1,/e/angles_of_a_polygon/,,E
-,,,
-,Playlist 25: Circles,g6_p25,E
-,Subtitle: Week 27,,
-Video 1,/v/language-and-notation-of-the-circle/,,E
-Video 2,/v/circles--radius--diameter-and-circumference/,,E
-Video 3,/v/length-of-an-arc-that-subtends-a-central-angle/,,E
-Video 4,/v/finding-central-angle-measure-given-arc-length/,,E
-Video 5,/v/parts-of-a-circle/,,E
-Video 6,/v/area-of-a-circle/,,E
-Video 7,/v/area-of-a-sector-given-a-central-angle/,,E
-Exercise 1, /e/circles_and_arcs/,,E
-Exercise 2,/e/areas_of_circles_and_sectors/,,E
-,,,
-,Grade VI - Unit Test 6,"g6_p23, g6_p24, g6_p25",4
+Index,Link,Playlist ID,Unit test ID,Essential/Optional (E/O),Number of cycles
+,,,,,
+,,,,,
+,,,,,
+,Playlist 1: Test of divisibility and prime numbers,g6_p1,,E,
+,Subtitle: Week 1,,,,
+Video 1,/v/divisibility-tests-for-2--3--4--5--6--9--10/,,,E,
+Video 2,/v/recognizing-divisibility/,,,E,
+Video 3,/v/the-why-of-the-3-divisibility-rule/,,,E,
+Video 4,/v/the-why-of-the-9-divisibility-rule/,,,E,
+Exercise 1,/e/divisibility_tests/,,,E,
+Video 5,/v/prime-numbers/,,,E,
+Video 6,/v/recognizing-prime-numbers/,,,E,
+Exercise 2,/e/composite_numbers/,,,E,
+,Subtitle: Week 2,,,,
+Video 7,/v/prime-factorization/,,,E,
+Video 8,/v/prime-factorization-exercise/,,,E,
+Video 9,/v/the-fundamental-theorem-of-arithmetic/,,,E,
+Video 10,/v/common-divisibility-examples/,,,E,
+Exercise 3,/e/prime_factorization/,,,E,
+Exercise 4,/e/the_fundamental_theorem_of_arithmetic/,,,E,
+Exercise 5,/e/divisibility/,,,E,
+,,,,,
+,Playlist 2: LCM and GCF,g6_p2,,E,
+,Subtitle: Week 3,,,,
+Video 1,/v/least-common-multiple-exercise/,,,E,
+Video 2,/v/least-common-multiple-exercise-2/,,,E,
+Video 3,/v/least-common-multiple--lcm/,,,E,
+Video 4,/v/least-common-multiple/,,,E,
+Exercise 1, /e/least_common_multiple/,,,E,
+Video 5,/v/greatest-common-divisor-factor-exercise/,,,E,
+Video 6,/v/greatest-common-divisor/,,,E,
+Video 7,/v/lcm-and-gcf-greatest-common-factor--word-problems/,,,E,
+Exercise 2,/e/greatest_common_divisor/,,,E,
+Exercise 3,/e/least_common_multiple_and_greatest_common_divisor_word_problems/,,,E,
+,Quiz 1,g6_p2_q1,,E,
+,,,,,
+,Playlist 3: Order of operations,g6_p3,,E,
+,Subtitle: Week 4,,,,
+Video 1,/v/constructing-numerical-expressions-example/,,,E,
+Video 2,/v/evaluating-an-expression-with-and-without-parentheses/,,,E,
+Video 3,/v/introduction-to-order-of-operations/,,,E,
+Video 4,/v/order-of-operations/,,,E,
+Exercise 1,/e/order_of_operations,,,E,
+,,,,,
+,Playlist 4: Commutative. distributive and associative properties,g6_p4,,E,
+,Subtitle: Week 5,,,,
+Video 1,/v/the-distributive-property/,,,E,
+Video 2,/v/the-distributive-property-2/,,,E,
+Exercise 1,/e/distributive_property/,,,E,
+Video 3,/v/commutative-law-of-addition/,,,E,
+Video 4,/v/commutative-property-for-addition/,,,E,
+Video 5,/v/commutative-law-of-multiplication/,,,E,
+Video 6,/v/associative-law-of-addition/,,,E,
+Video 7,/v/associative-law-of-multiplication/,,,E,
+,Quiz 2,g6_p4_q2,,E,
+,,,,,
+,Grade VI - Unit Test 1,"g6_p1, g6_p2, g6_p3, g6_p4",g6_t1,E,3
+,,,,,
+,Playlist 5: Write and identify a number using the base/index notation,g6_p5,,E,
+,Subtitle: Week 6,,,,
+Video 1,/v/introduction-to-exponents/,,,E,
+Video 2,/v/raising-a-number-to-the-0th-and-1st-power/,,,E,
+Video 3,/v/powers-of-1-and---1/,,,E,
+Video 4,/v/powers-of-fractions/,,,E,
+Video 5,/v/powers-of-zero/,,,E,
+Video 6,/v/understanding-exponents-2/,,,E,
+Video 7,/v/understanding-exponents/,,,E,
+Exercise 1,/e/exponents_1/,,,E,
+,Subtitle: Week 7,,,,
+Video 8,/v/exponent-rules-part-1/,,,E,
+Video 9,/v/exponent-rules-part-2/,,,E,
+Video 10,/v/exponent-properties-involving-quotients/,,,E,
+Exercise 2,/e/exponent_rules/,,,E,
+,Quiz 3,g6_p5_q3,,E,
+,,,,,
+,Playlist 6: Square and square roots,g6_p6,,E,
+,Subtitle: Week 8,,,,
+Video 1,/v/understanding-square-roots/,,,E,
+Video 2,/v/approximating-square-roots/,,,E,
+Video 3,/v/simplifying-square-roots-1/,,,E,
+Video 4,/v/simplifying-radicals/,,,E,
+Video 5,/v/square-roots-and-real-numbers/,,,E,
+Exercise 1,/e/square_roots/,,,E,
+Exercise 2,/e/square_roots_2/,,,E,
+Exercise 3,/e/simplifying_radicals/,,,E,
+Exercise 4,/e/multiplying_radicals/,,,E,
+,Quiz 4,g6_p6_q4,,E,
+,,,,,
+,Playlist 7: Integer and integer operations,g6_p7,,E,
+,Subtitle: Week 8,,,E,
+Video 1,/v/negative-numbers-introduction/,,,E,
+Video 2,/v/number-line-3-exercise-example/,,,E,
+Video 3,/v/ordering-negative-numbers/,,,E,
+Exercise 1,/e/number_line_2/,,,E,
+Exercise 2,/e/number_line_3/,,,E,
+Exercise 3,/e/ordering_negative_numbers/,,,E,
+Video 4,/v/adding-negative-numbers/,,,E,
+Video 5,/v/adding-integers-with-different-signs/,,,E,
+Video 6,/v/adding-and-subtracting-negative-number-examples/,,,E,
+,Subtitle: Week 9,,,,
+Video 7,/v/why-subtracting-a-negative-equivalent-to-adding-a-positive/,,,E,
+Video 8,/v/negative-number-word-problems-1/,,,E,
+Video 9,/v/u09-l1-t2-we4-adding-real-numbers-application/,,,E,
+Video 10,/v/adding-subtracting-negative-numbers/,,,E,
+Exercise 4, /e/adding_negative_numbers/,,,E,
+Exercise 5,/e/adding_and_subtracting_negative_numbers/,,,E,
+Exercise 6,/e/negative_number_word_problems/,,,E,
+Video 7,/v/multiplying-positive-and-negative-numbers/,,,E,
+Video 8,/v/why-a-negative-times-a-negative-is-a-positive/,,,E,
+Video 9,/v/why-a-negative-times-a-negative-makes-intuitive-sense/,,,E,
+Video 10,/v/dividing-positive-and-negative-numbers/,,,E,
+Video 11,/v/multiplying-negative-real-numbers/,,,E,
+Video 12,/v/multiplying-and-dividing-negative-numbers/,,,E,
+Exercise 7,/e/multiplying_and_dividing_negative_numbers/,,,E,
+,Quiz 5,g6_p7_q5,,E,
+,Grade VI - Unit Test 2,"g5_p5,g6_p6, g6_p7",g6_t2,,3
+,,,,,
+,Playlist 8: Interpret and draw bar graphs,g6_p8,,E,
+,,,,,
+,Subtitle: Week 10,,,,
+Video 1,/v/reading-tables-1/,,,E,
+Video 2,/v/reading-tables-2/,,,E,
+Exercise 1, /e/reading_tables_1/,,,E,
+Exercise 2,/e/reading_tables_2/,,,E,
+Video 3,/v/u08-l1-t2-we3-stem-and-leaf-plots/,,,E,
+Video 4,/v/reading-stem-and-leaf-plots/,,,E,
+Exercise 3,/e/reading_stem_and_leaf_plots/,,,E,
+Video 5,/v/reading-pictographs/,,,E,
+Exercise 4,/e/reading_pictographs_1/,,,E,
+Exercise 5,/e/reading_pictographs_2/,,,E,
+,Subtitle: Week 11,,,,
+Video 6,v/reading-bar-graphs/,,,E,
+Video 7,/v/histograms/,,,E,
+Video 8,/v/reading-bar-charts-1/,,,E,
+Video 9,/v/creating-bar-charts-1/,,,E,
+Video 10,/v/reading-bar-charts-2/,,,E,
+Video 11,/v/reading-bar-charts-3/,,,E,
+Exercise 6,/e/reading_bar_charts_1/,,,E,
+Exercise 7,/e/creating_bar_charts_1/,,,E,
+Exercise 8,/e/reading_bar_charts_2/,,,E,
+Exercise 9,/e/reading_bar_charts_3/ ,,,E,
+Video 12,/v/u08-l1-t2-we2-reading-line-graphs/,,,E,
+Video 13,/v/reading-pie-graphs--circle-graphs/,,,E,
+,Quiz 6,g6_p8_q6,,E,
+,,,,,
+,,,,,
+,,,,,
+,Playlist 9: Perimeter and area of triangles,g6_p9,,E,
+,Subtitle: Week 12,,,,
+Video 1,/v/perimeter-and-area-basics/,,,E,
+Video 2,/v/triangle-area-proofs/,,,E,
+Video 3,/v/interesting-perimeter-and-area-problems/,,,E,
+Video 4,/v/area-of-diagonal-generated-triangles-of-rectangle-are-equal/,,,E,
+Video 5,/v/area-of-an-equilateral-triangle/,,,E,
+Video 6,/v/area-of-shaded-region-made-from-equilateral-triangles/,,,E,
+Exercise 1,/e/area_of_triangles_1/,,,E,
+Exercise 2,/e/shaded_areas/,,,E,
+,,,,,
+,Playlist 10: Perimeter and area of quadrilaterals,g6_p10,,E,
+,Subtitle: Week 13,,,,
+Video 1,/v/quadrilateral-overview/,,,E,
+Video 2,/v/quadrilateral-properties/,,,E,
+Video 3,/v/area-of-a-parallelogram/,,,E,
+Video 4,/v/area-of-a-trapezoid-1/,,,E,
+Video 5,/v/area-of-a-kite/,,,E,
+Video 6,/v/perimeter-of-a-polygon/,,,E,
+Video 7,/v/perimeter-and-area-of-a-non-standard-polygon/,,,E,
+Exercise 1,/e/area_of_parallelograms/,,,E,
+Exercise 2,/e/areas_of_trapezoids_rhombi_and_kites/,,,E,
+,Quiz 7,g6_p10_q7,,E,
+,,,,,
+,Grade VI - Unit Test 3,"g6_8, g6_p9, g6_p10",g6_t3,,3
+,,,,,
+,Playlist 11: Ratio and proportion,g6_p11,,E,
+,Subtitle: Week 14,,,,
+Video 1,/v/introduction-to-ratios--new-hd-version/,,,E,
+Video 2,/v/ratios-as-fractions-in-simplest-form/,,,E,
+Video 3,/v/simplifying-rates-and-ratios/,,,E,
+Video 4,/v/describing-ratios-exercise/,,,E,
+Exercise 1,/e/expressing_ratios_as_fractions/,,,E,
+Video 5, /v/ratio-word-problem-exercise-example-1/,,,E,
+Video 6,/v/ratio-word-problem-exercise-example-2/,,,E,
+,Subtitle: Week 15,,,E,
+Video 7,/v/understanding-proportions/,,,E,
+Video 8,/v/solving-ratio-problems-with-tables-exercise/,,,E,
+Video 9,/v/solving-ratio-problems-with-tables-exercise-2/,,,E,
+Video 10,/v/solving-ratio-problems-with-tables-exercise-3/,,,E,
+Exercise 2,/e/ratio_word_problems/,,,E,
+Video 11,/v/rational-number-word-problem-example-1/,,,E,
+Video 12,/v/rational-number-word-problem-example-2/,,,E,
+,,,,,
+,"Playlist 12: Find the missing quantity, when 2 out of 3 quantities are given (principal, rate of interest, period)",g6_p12,,O,
+,Subtitle: Week 16,,,,
+Video 1,/v/solving-percent-problems/,,,O,
+Video 2,/v/solving-percent-problems-2/,,,O,
+Video 3,/v/solving-percent-problems-3/,,,O,
+Video 4,/v/growing-by-a-percentage/,,,O,
+Exercise 1,/e/discount_tax_and_tip_word_problems/,,,O,
+Exercise 2,/e/markup_and_commission_word_problems/,,,O,
+,Quiz 8,g6_p12_q8,,E,
+,,,,,
+,Playlist 13: Overview and history of algebra,g6_p13,,E,
+,Subtitle: Week 17,,,,
+Video 1,/v/origins-of-algebra/,,,E,
+Video 2,/v/abstract-ness/,,,E,
+Video 3,/v/the-beauty-of-algebra/,,,E,
+Video 4,/v/descartes-and-cartesian-coordinates/,,,E,
+Video 5,/v/why-all-the-letters-in-algebra/,,,E,
+,,,,,
+,Grade VI - Unit Test 4,"g6_p11, g6_p12, g6_p13",g6_t4,E,4
+,,,,,
+,Playlist 14: The why of algebra,g6_p14,,E,
+Video 1, /v/why-we-do-the-same--thing-to-both-sides--simple-equations/,,,E,
+Video 2,/v/representing-a-relationship-with-a-simple-equation/,,,E,
+Video 3,/v/one-step-equation-intuition/,,,E,
+Video 4,/v/one-step-equation-intuition-exercise-intro/,,,E,
+Video 5,/v/adding-and-subtracting-the-same-thing-from-both-sides/,,,E,
+Video 6,/v/intuition-why-we-divide-both-sides/,,,E,
+,Subtitle: Week 18,,,,
+Video 7,/v/why-we-do-the-same--thing-to-both-sides--two-step-equations/,,,E,
+Video 8,/v/why-we-do-the-same--thing-to-both-sides-multi-step-equations/,,,E,
+Video 9,/v/why-we-do-the-same--thing-to-both-sides-basic-systems/,,,E,
+Video 10,/v/why-all-the-letters-in-algebra/,,,E,
+Exercise 1, /e/one_step_equation_intuition/,,,E,
+,Quiz 9,g6_p14_q9,,E,
+,,,,,
+,Playlist 15: Algebra-variables and expressions,g6_p15,,E,
+,Subtitle: Week 19,,,,
+Video 1,/v/what-is-a-variable/,,,E,
+Video 2,/v/why-aren-t-we-using-the-multiplication-sign/,,,E,
+Video 3,/v/variables-and-expressions-1/,,,E,
+Video 4,/v/evaluate-a-formula-using-substitution/,,,E,
+Exercise 1,/e/evaluating_expressions_1/,,,E,
+Video 5,/v/ca-algebra-i--number-properties-and-absolute-value/,,,E,
+Video 6,/v/properties-of-numbers-1/,,,E,
+Video 7,/v/number-properties-terminology-1/,,,E,
+Video 8,/v/identity-property-of-1/,,,E,
+,,,,,
+,Playlist 16: Determining length of a segment using algebra,g6_p16,,E,
+,Subtitle: Week 20,,,,
+Video 1,/v/segment-addition/,,,E,
+Exercise 1,/e/segment_addition/,,,E,
+Video 2,/v/midpoint-of-a-segment/,,,E,
+Exercise 2,/e/midpoint_of_a_segment/,,,E,
+Video 3,/v/challenging-perimeter-problem/,,,E,
+,Quiz 10,g6_p16_q10,,E,
+,,,,,
+,Playlist 17: Dividing decimals,g6_p17,,E,
+Video 1,v/dividing-completely-to-get-decimal-answer/,,,E,
+Video 2,/v/dividing-completely-to-get-decimal-answer-example-2/,,,E,
+Video 3,/v/dividing-a-decimal-by-a-whole-number/,,,E,
+Video 4,/v/dividing-a-whole-number-by-a-decimal/,,,E,
+Video 5,/v/dividing-decimals/,,,E,
+Video 6,/v/dividing-decimal/,,,E,
+Exercise 1,/e/dividing_decimals_0.5/,,,E,
+Exercise 1,/e/dividing_decimals_1/,,,E,
+Exercise 3,/e/dividing_decimals_2/,,,E,
+,,,,,
+,Playlist 18: Converting between fractions and decimals,g6_p18,,E,
+,Subtitle: Week 21,,,,
+Video 1,/v/converting-fractions-to-decimals--ex1/,,,E,
+Video 2,/v/converting-fractions-to-decimals--ex2/,,,E,
+Video 3,/v/converting-fractions-to-decimals/,,,E,
+Video 4,/v/converting-fractions-to-decimals-example/,,,E,
+Exercise 1,/e/converting_fractions_to_decimals/,,,E,
+Video 5,/v/decimals-and-fractions/,,,E,
+Video 6,/v/converting-decimals-to-fractions-1-ex-1/,,,E,
+Video 7,/v/converting-decimals-to-fractions-1-ex-2/,,,E,
+Video 8,/v/converting-decimals-to-fractions-1-ex-3/,,,E,
+Video 9,/v/converting-decimals-to-fractions-2-ex-1/,,,E,
+Video 10,/v/converting-decimals-to-fractions-2-ex-2/,,,E,
+Exercise 2,/e/converting_decimals_to_fractions_1/,,,E,
+Exercise 3,/e/converting_decimals_to_fractions_2/,,,E,
+,Quiz 11,g6_p18_q11,,E,
+,,,,,
+,Grade VI - Unit Test 5,"g6_p14, g6_p15, g6_p16, g6_p17, g6_p18",g6_t5,,3
+,,,,,
+,Playlist 19: Percentages,g6_p19,,E,
+,Subtitle: Week 22,,,,
+Video 1,/v/describing-the-meaning-of-percent/,,,E,
+Video 2,/v/describing-the-meaning-of-percent-2/,,,E,
+Video 3,/v/representing-a-number-as-a-decimal--percent--and-fraction/,,,E,
+Video 4,/v/converting-decimals-to-percents--ex-1/,,,E,
+Video 5,/v/converting-decimals-to-percents--ex-2/,,,E,
+Video 6,/v/converting-percents-to-decimals--ex-1/,,,E,
+Video 7,/v/converting-percents-to-decimals--ex-2/,,,E,
+Video 8,/v/finding-percentages-example/,,,E,
+Video 9,/v/percent-word-problems/,,,E,
+Video 10,/v/taking-a-percentage-example/,,,E,
+Video 11,/v/identifying-percent-amount-and-base/,,,E,
+Video 12,/v/representing-a-number-as-a-decimal--percent--and-fraction-2/,,,E,
+Video 13,/v/ordering-numeric-expressions_DUP_3/ ,,,E,
+Exercise 1,/e/converting_decimals_to_percents/,,,E,
+Exercise 2,/e/converting_percents_to_decimals/,,,E,
+Exercise 3,/e/finding_percents/,,,E,
+Video 14,/v/growing-by-a-percentage/,,,E,
+Video 15,/v/solving-percent-problems/,,,E,
+Video 16,/v/solving-percent-problems-2/,,,E,
+Video 17,/v/solving-percent-problems-3/,,,E,
+Exercise 4,/e/discount_tax_and_tip_word_problems/,,,E,
+Exercise 5,/e/markup_and_commission_word_problems/,,,E,
+,Quiz 12,g6_p19_q12,,E,
+,,,,,
+,Playlist 20: Estimating and rounding decimals/decimal multiplication by 10,g6_p20,,E,
+,Subtitle: Week 23,,,,
+Video 1,/v/rounding-decimals/,,,E,
+Exercise 1,/e/rounding_numbers/,,,E,
+Video 2,/v/estimation-with-decimals/,,,E,
+Exercise 2,/e/estimation_with_decimals/,,,E,
+Video 3,/v/multiplying-a-decimal-by-a-power-of-10/,,,E,
+Video 4,/v/dividing-a-decimal-by-a-power-of-10/,,,E,
+Video 5,/v/dividing-decimals-2-1/,,,E,
+Exercise 3,/e/understanding_moving_the_decimal/,,,E,
+Exercise 4,/e/converting_fractions_to_decimals_0.5/,,,E,
+,Quiz 13,g6_p20_q13,,E,
+,,,,,
+,Playlist 21: Introduction to geometry,g6_p21,,E,
+,Subtitle: Week 24,,,,
+Video 1,/v/euclid-as-the-father-of-geometry/,,,E,
+Video 2,/v/language-and-notation-of-basic-geometry/,,,E,
+Video 3,/v/lines--line-segments--and-rays/,,,E,
+Video 4,/v/drawing-lines-exercise-example/,,,E,
+Video 5,/v/specifying-planes-in-three-dimensions/,,,E,
+Exercise 1,e/recognizing_rays_lines_and_line_segments/,,,E,
+Video 6,/v/the-golden-ratio/,,,E,
+Exercise 2,/e/points_lines_and_planes/,,,E,
+,,,,,
+,Playlist 22: Angles and types of angles,g6_p22,,E,
+,Subtitle: Week 25,,,,
+Video 1,/v/angles-at-the-intersection-of-two-lines/,,,E,
+Video 2,/v/using-algebra-to-find-the-measures-of-vertical-angles/,,,E,
+Video 3,/v/proof-vertical-angles-are-equal/,,,E,
+Video 4,/v/angles-formed-by-parallel-lines-and-transversals/,,,E,
+Video 5,/v/identifying-parallel-and-perpendicular-lines/,,,E,
+Video 6,/v/figuring-out-angles-between-transversal-and-parallel-lines/,,,E,
+Video 7,/v/using-algebra-to-find-measures-of-angles-formed-from-transversal/,,,E,
+Video 8,/v/ca-geometry--deducing-angle-measures/,,,E,
+Exercise 1, /e/vertical_angles/,,,E,
+Exercise 2, /e/vertical_angles_2/,,,E,
+Exercise 3,/e/congruent_angles/,,,E,
+Exercise 4,/e/parallel_lines_1/,,,E,
+Exercise 5,/e/parallel_lines_2/,,,E,
+Video 9,v/complementary-and-supplementary-angles/,,,E,
+Video 10,/v/complementary-and-supplementary-angles/,,,E,
+Video 11,/v/example-using-algebra-to-find-measure-of-supplementary-angles/,,,E,
+Exercise 6,/e/complementary_and_supplementary_angles/,,,E,
+Exercise 7,/e/angle_addition_postulate/,,,E,
+,Quiz 14,g6_p22_q14,,E,
+,,,,,
+,Grade VI - Unit Test 6,"g6_p19, g6_p20, g6_p21, g6_p22",g6_t6,,2
+,,,,,
+,"Playlist 23: Angles, triangles and polygons-1",g6_p23,,E,
+,Subtitle: Week 26,,,,
+Video 1,/v/proof---sum-of-measures-of-angles-in-a-triangle-are-180/,,,E,
+Video 2,/v/triangle-angle-example-1/,,,E,
+Video 3,/v/triangle-angle-example-2/,,,E,
+Video 4,/v/proof---corresponding-angle-equivalence-implies-parallel-lines/,,,E,
+Exercise 1,/e/angles_1/,,,E,
+Exercise 2,/e/angles_2/,,,E,
+,Quiz 15,g6_p23_q15,,E,
+,,,,,
+,"Playlist 24: Angles, triangles and polygons-2",g6_p24,,E,
+Video 1,/v/finding-more-angles/,,,E,
+Video 2,/v/sum-of-interior-angles-of-a-polygon/,,,E,
+Video 3,/v/sum-of-the-exterior-angles-of-convex-polygon/,,,E,
+Exercise 1,/e/angles_of_a_polygon/,,,E,
+,,,,,
+,Playlist 25: Circles,g6_p25,,E,
+,Subtitle: Week 27,,,,
+Video 1,/v/language-and-notation-of-the-circle/,,,E,
+Video 2,/v/circles--radius--diameter-and-circumference/,,,E,
+Video 3,/v/length-of-an-arc-that-subtends-a-central-angle/,,,E,
+Video 4,/v/finding-central-angle-measure-given-arc-length/,,,E,
+Video 5,/v/parts-of-a-circle/,,,E,
+Video 6,/v/area-of-a-circle/,,,E,
+Video 7,/v/area-of-a-sector-given-a-central-angle/,,,E,
+Exercise 1, /e/circles_and_arcs/,,,E,
+Exercise 2,/e/areas_of_circles_and_sectors/,,,E,
+,,,,,
+,Grade VI - Unit Test 7,"g6_p23, g6_p24, g6_p25",g6_t7,,4
+,,,,,
+,Grade VI - Baseline Exam,"g5_p1, g5_p2, g5_p3, g5_p4, g5_p5, g5_p6, g5_p7, g5_p8, g5_p9, g5_p10, g5_p11, g5_p12, g5_p13, g5_p14, g5_p15, g5_p16, g5_p17, g5_p18, g5_p19, g5_p20, g5_p21",g6_t0,,2
