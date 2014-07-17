@@ -125,7 +125,7 @@ let parse_ir_list_to_exams ir_list =
   List.fold_left ~init:[] ~f:parse_ir_to_exam ir_list
 
 let populate_exam_ids (exam: exam) (playlists: playlist list) : exam =
-  let find_relevant_playlist id = try List.find_exn ~f:(fun p -> p.id = id) playlists with Not_found -> print_endline id; raise Not_found in
+  let find_relevant_playlist id = try List.find_exn ~f:(fun p -> p.id = id) playlists with Not_found -> Printf.printf "Exam: %s; playlist id: %s\n" exam.title id; raise Not_found in
   let get_playlist_exercise_ids pl = List.filter ~f:(function Exercise _ -> true | _ -> false ) pl.entries
                                      |> List.map ~f:(function Exercise slug -> slug) in
   let sanitize_exam_ids ids = List.map ~f:sanitize_slug ids in
@@ -147,14 +147,14 @@ let exams_to_json_list exams =
 
   List.map ~f:exam_to_json exams
 
-let parse_csv_to_json csv_path tag =
+let parse_csv_to_json csv_path tag other_playlists =
   let ir = Csv.load csv_path |> parse_csv_to_ir in
-  let playlists = ir |> parse_ir_list_to_playlists tag in
+  let playlists = ir |> parse_ir_list_to_playlists tag |> List.append other_playlists in
   let playlist_json = playlists |> playlists_to_json_list in
   let exams = ir |> parse_ir_list_to_exams |> List.map ~f:(fun e -> populate_exam_ids e playlists) in
   let exam_json = exams |> exams_to_json_list in
 
-  [playlist_json; exam_json]
+  (playlists, playlist_json, exam_json)
 
 let print_jsons l = `List l
                     |> Yojson.Basic.pretty_to_string
@@ -183,10 +183,10 @@ let save_to_playlist_file j =
 (*  *)
 let main () =
   Random.init 3
-  let [grade3_playlist_json; grade3_exam_json] = parse_csv_to_json "data/grade3.csv" "Grade 3" in
-  let [grade4_playlist_json; grade4_exam_json] = parse_csv_to_json "data/grade4.csv" "Grade 4" in
-  let [grade5_playlist_json; grade5_exam_json] = parse_csv_to_json "data/grade5.csv" "Grade 5" in
-  let [grade6_playlist_json; grade6_exam_json] = parse_csv_to_json "data/grade6.csv" "Grade 6" in
+  let (grade3_playlists, grade3_playlist_json, grade3_exam_json) = parse_csv_to_json "data/grade3.csv" "Grade 3" [] in
+  let (grade4_playlists, grade4_playlist_json, grade4_exam_json) = parse_csv_to_json "data/grade4.csv" "Grade 4" grade3_playlists in
+  let (grade5_playlists, grade5_playlist_json, grade5_exam_json) = parse_csv_to_json "data/grade5.csv" "Grade 5" grade4_playlists in
+  let (grade6_playlists, grade6_playlist_json, grade6_exam_json) = parse_csv_to_json "data/grade6.csv" "Grade 6" grade5_playlists in
   let playlist_jsons = List.concat [grade3_playlist_json; grade4_playlist_json; grade5_playlist_json; grade6_playlist_json;] in
   let exam_jsons = List.concat [grade3_exam_json; grade4_exam_json; grade5_exam_json; grade6_exam_json;] in
 
