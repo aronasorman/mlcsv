@@ -64,20 +64,20 @@ let playlists_to_json_list l = List.map ~f:playlist_to_json l
 (*  *)
 (* Functions for reading the CSV into a list of playlists *)
 (*  *)
-let parse_broken_line_to_ir kind title playlist_id exam_id =
+let parse_broken_line_to_ir kind title playlist_id exam_id repeats =
   if contains title "Playlist" then `Playlist (playlist_id, title)
-  else if contains title "Baseline Exam" then `Exam (title, playlist_id, exam_id)
+  else if contains title "Baseline Exam" then `Exam (title, playlist_id, exam_id, repeats)
   else if contains kind "Playlist" then `Playlist (playlist_id, kind)
   else if contains kind "Video" then `Video title
   else if contains kind "Exercise" then `Exercise title
   else if contains title "Quiz" then `Quiz playlist_id
   else if contains title "Subtitle" then `Divider title
-  else if contains title "Unit Test" then `Exam (title, playlist_id, exam_id)
+  else if contains title "Unit Test" then `Exam (title, playlist_id, exam_id, repeats)
   else `Blank
 
 let parse_csv_line_to_ir (line: string list) =
   match line with
-  | kind :: title:: playlist_id :: exam_id :: _ -> parse_broken_line_to_ir kind title playlist_id exam_id
+  | kind :: title:: playlist_id :: exam_id :: _is_essential_ :: repeats :: _ -> parse_broken_line_to_ir kind title playlist_id exam_id repeats
   | _ -> raise (Unrecognized_line line)
 
 let parse_csv_to_ir (csv: Csv.t) = List.map ~f:parse_csv_line_to_ir csv
@@ -106,10 +106,10 @@ let parse_ir_list_to_playlists tag ir_list =
 let parse_ir_list_to_exams ir_list =
   let parse_exam_ids_to_string_list ids_str = Str.split (Str.regexp ",") ids_str |> List.map ~f:String.strip in
   let parse_ir_to_exam exam_list = function
-    | `Exam (title, ids, exam_id) -> { title = title;
+    | `Exam (title, ids, exam_id, repeats) -> { title = title;
                               id = exam_id;
                               seed = Random.int 10000;
-                              repeats = "1";
+                              repeats = repeats;
                               playlist_ids = parse_exam_ids_to_string_list ids;
                               ids = [];
                             } :: exam_list
