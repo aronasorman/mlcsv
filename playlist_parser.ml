@@ -113,18 +113,18 @@ let parse_ir_list_to_exams ir_list =
   let parse_ir_to_exam exam_list = function
     | `Exam (title, ids, exam_id, repeats) -> { title = title;
                               id = exam_id;
-                              seed = Random.int 10000;
+                              seed = 0;
                               repeats = repeats;
                               playlist_ids = parse_exam_ids_to_string_list ids;
                               ids = [];
                             } :: exam_list
     (* ignore everything else *)
-    | `Playlist _        -> exam_list
-    | `Video _           -> exam_list
-    | `Exercise _        -> exam_list
-    | `Divider _         -> exam_list
-    | `Quiz _            -> exam_list
-    | `Blank             -> exam_list
+    | `Playlist _                          -> exam_list
+    | `Video _                             -> exam_list
+    | `Exercise _                          -> exam_list
+    | `Divider _                           -> exam_list
+    | `Quiz _                              -> exam_list
+    | `Blank                               -> exam_list
   in
 
   List.fold_left ~init:[] ~f:parse_ir_to_exam ir_list |> List.map ~f:add_seed_from_hashed_title
