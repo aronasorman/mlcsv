@@ -77,7 +77,9 @@ let parse_broken_line_to_ir kind title playlist_id exam_id repeats =
   else if contains kind "Exercise" then `Exercise title
   else if contains title "Quiz" then `Quiz playlist_id
   else if contains title "Subtitle" then `Divider title
-  else if contains title "Unit Test" then `Exam (title, playlist_id, exam_id, repeats)
+  else if contains title "Unit Test" then
+    if repeats <> "" then `Exam (title, playlist_id, exam_id, repeats)
+    else raise (Invalid_csv (Printf.sprintf "Empty repeat field for %s\n" exam_id))
   else `Blank
 
 let parse_csv_line_to_ir (line: string list) =
