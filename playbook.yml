@@ -1,0 +1,39 @@
+---
+- hosts: all
+  vars:
+    - system_packages:
+        - build-essential
+        - m4
+        - zlib1g-dev
+        - libssl-dev
+        - ocaml-nox
+        - ocaml-native-compilers
+        - ocaml-findlib
+        - opam
+        - oasis
+    - opam_packages:
+        - base-threads
+        - base-unix
+        - lwt
+        - core
+        - utop
+        - yojson
+        - csv
+
+  tasks:
+    - name: install required packages
+      apt: name={{ item }} state=present cache_valid_time=604800
+      with_items: system_packages
+      sudo: yes
+
+    - name: initialize opam
+      shell: opam init --yes
+      args:
+        creates: ~/.opam
+
+    - name: install opam packages
+      shell: eval `opam config env` && opam install {{ item }} --yes
+      with_items: opam_packages
+
+    - name: make opam binaries available to shell
+      lineinfile: dest=~/.bashrc line=PATH=~/.opam/system/bin:$PATH
