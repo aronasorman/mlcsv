@@ -135,7 +135,7 @@ let populate_exam_ids (exam: exam) (playlists: playlist list) : exam =
   let find_relevant_playlist id = try List.find_exn ~f:(fun p -> p.id = id) playlists with Not_found -> Printf.printf "Exam: %s; playlist id: %s\n" exam.title id; raise Not_found in
   let get_playlist_exercise_ids pl = List.filter ~f:(function Exercise _ -> true | _ -> false ) pl.entries
                                      |> List.map ~f:(function Exercise slug -> slug) in
-  let sanitize_exam_ids ids = List.map ~f:sanitize_slug ids in
+  let sanitize_exam_ids ids = List.map ~f:sanitize_slug ids |> List.dedup ~compare:String.compare in
   let ids = List.map ~f:(fun pl_id -> (find_relevant_playlist pl_id |> get_playlist_exercise_ids)) exam.playlist_ids
             |> List.concat in
 
