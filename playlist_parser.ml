@@ -20,6 +20,7 @@ type exam = { title: string;
               playlist_ids: string list;
               repeats: string;
               ids: string list;
+              is_practice: bool;
             }
 
 exception Unrecognized_line of string list
@@ -119,6 +120,7 @@ let parse_ir_list_to_exams ir_list =
                               repeats = repeats;
                               playlist_ids = parse_exam_ids_to_string_list ids;
                               ids = [];
+                              is_practice = false;
                             } :: exam_list
     (* ignore everything else *)
     | `Playlist _                          -> exam_list
@@ -157,6 +159,7 @@ let exams_to_json_list exams =
 
 let add_practice_exams exams =
   let make_practice_exam exam = {exam with id = Printf.sprintf "%s_practice" exam.id;
+                                           is_practice = true;
                                            title = Printf.sprintf "%s - Practice" exam.title} in
   let practice_exams = List.filter ~f:(fun e -> contains e.title "Unit Test") exams |> List.map ~f:make_practice_exam in
 
