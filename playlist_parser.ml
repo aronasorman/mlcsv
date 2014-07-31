@@ -4,8 +4,8 @@ open Csv
 
 type playlist_entry =
   | Divider of string
-  | Video of string
-  | Exercise of string
+  | Video of string * bool
+  | Exercise of string * bool
   | Quiz
 
 type playlist = { title: string;
@@ -44,16 +44,18 @@ let add_seed_from_hashed_id exam =
 (* Functions for serializing playlists to JSON *)
 (*  *)
 let playlist_entry_to_json sort_order = function
-  | Exercise s -> `Assoc [("entity_id", `String (sanitize_slug s));
+  (* | Exercise (s, e) -> `Assoc [("entity_id", `String (sanitize_slug s)); *)
+  | Exercise (s, e) -> `Assoc [("entity_id", `String s);
                           ("sort_order",  `Int sort_order);
                           ("entity_kind", `String "Exercise")]
-  | Divider s  -> `Assoc [("entity_id", `String s);
+  | Divider s       -> `Assoc [("entity_id", `String s);
                           ("sort_order", `Int sort_order);
                           ("entity_kind", `String "Divider")]
-  | Video s    -> `Assoc [("entity_id", `String (sanitize_slug s));
+  (* | Video (s, e)    -> `Assoc [("entity_id", `String (sanitize_slug s)); *)
+  | Video (s, e)    -> `Assoc [("entity_id", `String s);
                           ("sort_order", `Int sort_order);
                           ("entity_kind", `String "Video")]
-  | Quiz       -> `Assoc [("entity_id", `String "Quiz");
+  | Quiz            -> `Assoc [("entity_id", `String "Quiz");
                           ("sort_order", `Int sort_order);
                           ("entity_kind", `String "Quiz")]
 
@@ -70,12 +72,12 @@ let playlists_to_json_list l = List.map ~f:playlist_to_json l
 (*  *)
 (* Functions for reading the CSV into a list of playlists *)
 (*  *)
-let parse_broken_line_to_ir kind title playlist_id exam_id repeats =
+let parse_broken_line_to_ir kind title playlist_id exam_id repeats essentiality =
   if contains title "Playlist" then `Playlist (playlist_id, title)
   else if contains title "Baseline Exam" then `Exam (title, playlist_id, exam_id, repeats)
   else if contains kind "Playlist" then `Playlist (playlist_id, kind)
-  else if contains kind "Video" then `Video title
-  else if contains kind "Exercise" then `Exercise title
+  else if contains kind "Video" then `Video (title, essentiality)
+  else if contains kind "Exercise" then `Exercise (title, essentiality)
   else if contains title "Quiz" then `Quiz playlist_id
   else if contains title "Subtitle" then `Divider title
   else if contains title "Unit Test" then
@@ -85,7 +87,7 @@ let parse_broken_line_to_ir kind title playlist_id exam_id repeats =
 
 let parse_csv_line_to_ir (line: string list) =
   match line with
-  | kind :: title:: playlist_id :: exam_id :: _is_essential_ :: repeats :: _ -> parse_broken_line_to_ir kind title playlist_id exam_id repeats
+  | kind :: title:: playlist_id :: exam_id :: essentiality :: repeats :: _ -> parse_broken_line_to_ir kind title playlist_id exam_id repeats essentiality
   | _ -> raise (Unrecognized_line line)
 
 let parse_csv_to_ir (csv: Csv.t) = List.map ~f:parse_csv_line_to_ir csv
@@ -97,13 +99,17 @@ let parse_ir_list_to_playlists tag ir_list =
     | `Playlist (id, title) -> ({ id = id; title = title; entries = []; tag = tag } :: [], ir_list)
     | _                     -> raise (Invalid_csv "First non-blank entry is not a playlist description") in
   let parse_ir_to_playlist (current_playlist :: playlists) = function
-    | `Playlist (id, title) -> { id = id; title = title; entries = []; tag = tag } :: current_playlist :: playlists
-    | `Video title          -> { current_playlist with entries = (Video title :: current_playlist.entries) } :: playlists
-    | `Exercise title       -> { current_playlist with entries = (Exercise title :: current_playlist.entries) } :: playlists
-    | `Divider title        -> { current_playlist with entries = (Divider title :: current_playlist.entries) } :: playlists
-    | `Quiz _               -> { current_playlist with entries = (Quiz :: current_playlist.entries) } :: playlists
-    | `Blank                -> current_playlist :: playlists
-    | `Exam _               -> current_playlist :: playlists in
+    | `Playlist (id, title)           -> { id = id; title = title; entries = []; tag = tag } :: current_playlist :: playlists
+    | `Video (title, essentiality)    ->
+       let is_essential = essentiality = "E" in
+       { current_playlist with entries = (Video (title, is_essential) :: current_playlist.entries) } :: playlists
+    | `Exercise (title, essentiality) ->
+       let is_essential = essentiality = "E" in
+       { current_playlist with entries = (Exercise (title, is_essential) :: current_playlist.entries) } :: playlists
+    | `Divider title                  -> { current_playlist with entries = (Divider title :: current_playlist.entries) } :: playlists
+    | `Quiz _                         -> { current_playlist with entries = (Quiz :: current_playlist.entries) } :: playlists
+    | `Blank                          -> current_playlist :: playlists
+    | `Exam _                         -> current_playlist :: playlists in
   let reverse_entries_to_proper_order pl = { pl with entries = List.rev pl.entries } in
   let reverse_playlists_to_proper_order pl_list = List.map ~f:reverse_entries_to_proper_order pl_list |> List.rev in
   let accum, rest = parse_first_entry_as_playlist ir_list
@@ -136,7 +142,7 @@ let parse_ir_list_to_exams ir_list =
 let populate_exam_ids (exam: exam) (playlists: playlist list) : exam =
   let find_relevant_playlist id = try List.find_exn ~f:(fun p -> p.id = id) playlists with Not_found -> Printf.printf "Exam: %s; playlist id: %s\n" exam.title id; raise Not_found in
   let get_playlist_exercise_ids pl = List.filter ~f:(function Exercise _ -> true | _ -> false ) pl.entries
-                                     |> List.map ~f:(function Exercise slug -> slug) in
+                                     |> List.map ~f:(function Exercise (slug, e) -> slug) in
   let remove_subtitle_ids ids = List.filter ~f:(fun id -> contains id "Subtitle" |> not) ids in
   let sanitize_exam_ids ids = List.map ~f:sanitize_slug ids |> List.dedup ~compare:String.compare |> remove_subtitle_ids in
   let ids = List.map ~f:(fun pl_id -> (find_relevant_playlist pl_id |> get_playlist_exercise_ids)) exam.playlist_ids
