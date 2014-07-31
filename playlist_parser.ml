@@ -47,14 +47,16 @@ let playlist_entry_to_json sort_order = function
   (* | Exercise (s, e) -> `Assoc [("entity_id", `String (sanitize_slug s)); *)
   | Exercise (s, e) -> `Assoc [("entity_id", `String s);
                           ("sort_order",  `Int sort_order);
-                          ("entity_kind", `String "Exercise")]
+                          ("entity_kind", `String "Exercise");
+                          ("is_essential", `Bool e)]
   | Divider s       -> `Assoc [("entity_id", `String s);
                           ("sort_order", `Int sort_order);
                           ("entity_kind", `String "Divider")]
   (* | Video (s, e)    -> `Assoc [("entity_id", `String (sanitize_slug s)); *)
   | Video (s, e)    -> `Assoc [("entity_id", `String s);
                           ("sort_order", `Int sort_order);
-                          ("entity_kind", `String "Video")]
+                          ("entity_kind", `String "Video");
+                          ("is_essential", `Bool e)]
   | Quiz            -> `Assoc [("entity_id", `String "Quiz");
                           ("sort_order", `Int sort_order);
                           ("entity_kind", `String "Quiz")]
