@@ -35,8 +35,8 @@ let contains s1 s2 =
 
 let sanitize_slug id = Str.split (Str.regexp "/") id |> List.last_exn
 
-let add_seed_from_hashed_title exam =
-  let hash_title = Digest.string exam.title |> Digest.to_hex |> Fn.flip Str.first_chars 3 |> Printf.sprintf "0x%s" |> int_of_string in
+let add_seed_from_hashed_id exam =
+  let hash_title = Digest.string exam.id |> Digest.to_hex |> Fn.flip Str.first_chars 3 |> Printf.sprintf "0x%s" |> int_of_string in
 
   { exam with seed = hash_title }
 
@@ -131,7 +131,7 @@ let parse_ir_list_to_exams ir_list =
     | `Blank                               -> exam_list
   in
 
-  List.fold_left ~init:[] ~f:parse_ir_to_exam ir_list |> List.map ~f:add_seed_from_hashed_title
+  List.fold_left ~init:[] ~f:parse_ir_to_exam ir_list |> List.map ~f:add_seed_from_hashed_id
 
 let populate_exam_ids (exam: exam) (playlists: playlist list) : exam =
   let find_relevant_playlist id = try List.find_exn ~f:(fun p -> p.id = id) playlists with Not_found -> Printf.printf "Exam: %s; playlist id: %s\n" exam.title id; raise Not_found in
@@ -161,7 +161,7 @@ let add_practice_exams exams =
   let make_practice_exam exam = {exam with id = Printf.sprintf "%s_practice" exam.id;
                                            is_practice = true;
                                            title = Printf.sprintf "%s - Practice" exam.title} in
-  let practice_exams = List.filter ~f:(fun e -> contains e.title "Unit Test") exams |> List.map ~f:make_practice_exam in
+  let practice_exams = List.filter ~f:(fun e -> contains e.title "Unit Test") exams |> List.map ~f:(fun x -> make_practice_exam x |> add_seed_from_hashed_id) in
 
   exams @ practice_exams
 
