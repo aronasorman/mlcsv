@@ -77,6 +77,7 @@ let playlists_to_json_list l = List.map ~f:playlist_to_json l
 let parse_broken_line_to_ir kind title playlist_id exam_id repeats essentiality =
   if contains title "Playlist" then `Playlist (playlist_id, title)
   else if contains title "Baseline Exam" then `Exam (title, playlist_id, exam_id, repeats)
+  else if contains title "Mid Year Exam" then `Exam (title, playlist_id, exam_id, repeats)
   else if contains kind "Playlist" then `Playlist (playlist_id, kind)
   else if contains kind "Video" then `Video (title, essentiality)
   else if contains kind "Exercise" then `Exercise (title, essentiality)
@@ -217,7 +218,7 @@ let main () =
   let (_, grade4_midyear_exams, _, grade4_midyear_exam_json) = parse_csv_to_json "data/grade4-midyear-exams.csv" "Grade 4" [] in
   let (_, grade5_midyear_exams, _, grade5_midyear_exam_json) = parse_csv_to_json "data/grade5-midyear-exams.csv" "Grade 5" [] in
   let (_, grade6_midyear_exams, _, grade6_midyear_exam_json) = parse_csv_to_json "data/grade6-midyear-exams.csv" "Grade 6" [] in
-  let playlist_jsons = List.concat [grade3_playlist_json; grade4_playlist_json; grade5_playlist_json; grade6_playlist_json;] in
+  let playlist_jsons = List.concat [grade3_playlist_json; grade4_playlist_json; grade5_playlist_json; grade6_playlist_json] in
   let exam_jsons = List.concat [grade3_exam_json; grade4_exam_json; grade5_exam_json; grade6_exam_json; grade4_midyear_exam_json; grade5_midyear_exam_json; grade6_midyear_exam_json;] in
 
   save_to_playlist_file playlist_jsons;
