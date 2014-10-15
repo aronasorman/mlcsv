@@ -155,14 +155,15 @@ let populate_exam_ids (exam: exam) (playlists: playlist list) : exam =
 
 let exams_to_json_list exams =
   let string_list_to_json_list l = `List (List.map ~f:(fun s -> `String s) l) in
-  let exam_to_json {title; id; seed; playlist_ids; ids; repeats} = `Assoc [("id", `String id);
-                                                                           ("title", `String title);
-                                                                           ("seed", `Int seed);
-                                                                           ("playlist_ids", string_list_to_json_list playlist_ids);
-                                                                           ("repeats", `String repeats);
-                                                                           ("ids", string_list_to_json_list ids);
-                                                                          ]
-  in
+  let exam_to_json {title; id; seed; playlist_ids; ids; repeats; is_practice} = `Assoc [("id", `String id);
+                                                                                        ("title", `String title);
+                                                                                        ("seed", `Int seed);
+                                                                                        ("playlist_ids", string_list_to_json_list playlist_ids);
+                                                                                        ("repeats", `String repeats);
+                                                                                        ("ids", string_list_to_json_list ids);
+                                                                                        ("is_practice", `Bool is_practice);
+                                                                                        ]
+                                                                                      in
 
   List.map ~f:exam_to_json exams
 
