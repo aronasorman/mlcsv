@@ -1,7 +1,7 @@
 Index,Link,Playlist ID,Unit test ID,Optional / Essential (O/E),number of cycles,Unit
 ,,,,,,
-,,,,,,1
-,Grade 4 :Unit 1- Playlist 1: Telling time,g4_u1_p1,,E,,
+,,,,,,
+,Grade 4 :Unit 1- Playlist 1: Telling time,g4_u1_p1,,E,,1
 Exercise 1,/e/telling_time_0.5/,,,E,,
 Exercise 2,/e/telling_time/,,,E,,
 Exercise 3,/e/telling_time_2/,,,E,,
@@ -21,7 +21,7 @@ Exercise 2,/e/identifying-numerators-and-denominators/,,,E,,
 Exercise 3,/e/fractions_on_the_number_line_1/,,,E,,
 Exercise 4,/e/fraction_word_problems_1/,,,E,,
 ,,,,,,
-,Grade 4 : Unit 2- Playlist 2: Fractions Operations and Types of Fractions,g4_u2_p2,,E,,
+,Grade 4 : Unit 2- Playlist 2: Fractions Operations and Types of Fractions,g4_u2_p2,,E,,2
 Exercise 1,/e/comparing_fractions_1/,,,E,,
 Exercise 2,/e/adding_fractions_with_common_denominators/,,,E,,
 Exercise 3,/e/subtracting_fractions_with_common_denominators/,,,E,,
@@ -48,7 +48,7 @@ Exercise 2,/e/angle_types/,,,E,,
 Exercise 3,/e/Triangle-types/,,,E,,
 Exercise 4,/e/axis-of-symmetry/,,,,,
 ,,,,,,
-,"Grade 4: Unit 4 -Playlist 2: Perimeter, Circles",g4_u4_p2,,E,,
+,"Grade 4: Unit 4 -Playlist 2: Perimeter, Circles",g4_u4_p2,,E,,4
 Exercise 1,/e/perimeter-1/,,,E,,
 Exercise 2,/e/practicing-finding-perimeter/,,,E,,
 Exercise 3,/e/radius_diameter_and_circumference/,,,E,,
