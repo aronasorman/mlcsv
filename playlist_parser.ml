@@ -12,6 +12,7 @@ type playlist = { title: string;
                   id: string;
                   tag: string;
                   entries: playlist_entry list;
+                  show: bool;
                 }
 
 type exam = { title: string;
@@ -21,6 +22,7 @@ type exam = { title: string;
               repeats: string;
               ids: string list;
               is_practice: bool;
+              show: bool;
             }
 
 exception Unrecognized_line of string list
@@ -62,11 +64,12 @@ let playlist_entry_to_json sort_order = function
                           ("entity_kind", `String "Quiz")]
 
 (* Convert a playlist to a JSON data structure that Yojson can accept. Add in the sort_order here too *)
-let playlist_to_json {title; entries; id; tag} =
+let playlist_to_json {title; entries; id; tag; show} =
   let entries_to_json = `List (List.mapi ~f:playlist_entry_to_json entries)
   in `Assoc [("title", `String title);
              ("id", `String id);
              ("tag", `String tag);
+             ("show", `Bool show);
              ("entries", entries_to_json)]
 
 let playlists_to_json_list l = List.map ~f:playlist_to_json l
@@ -99,10 +102,10 @@ let parse_csv_to_ir (csv: Csv.t) = List.map ~f:parse_csv_line_to_ir csv
 let parse_ir_list_to_playlists tag ir_list =
   let parse_first_entry_as_playlist (pl :: ir_list) =
     match pl with
-    | `Playlist (id, title) -> ({ id = id; title = title; entries = []; tag = tag } :: [], ir_list)
+    | `Playlist (id, title) -> ({ id = id; title = title; entries = []; tag = tag; show = true } :: [], ir_list)
     | _                     -> raise (Invalid_csv "First non-blank entry is not a playlist description") in
   let parse_ir_to_playlist (current_playlist :: playlists) = function
-    | `Playlist (id, title)           -> { id = id; title = title; entries = []; tag = tag } :: current_playlist :: playlists
+    | `Playlist (id, title)           -> { id = id; title = title; entries = []; tag = tag; show = true } :: current_playlist :: playlists
     | `Video (title, essentiality)    ->
        let is_essential = essentiality = "E" in
        { current_playlist with entries = (Video (title, is_essential) :: current_playlist.entries) } :: playlists
@@ -124,13 +127,14 @@ let parse_ir_list_to_exams ir_list =
   let parse_exam_ids_to_string_list ids_str = Str.split (Str.regexp ",") ids_str |> List.map ~f:String.strip in
   let parse_ir_to_exam exam_list = function
     | `Exam (title, ids, exam_id, repeats) -> { title = title;
-                              id = exam_id;
-                              seed = 0;
-                              repeats = repeats;
-                              playlist_ids = parse_exam_ids_to_string_list ids;
-                              ids = [];
-                              is_practice = false;
-                            } :: exam_list
+                                                id = exam_id;
+                                                seed = 0;
+                                                repeats = repeats;
+                                                playlist_ids = parse_exam_ids_to_string_list ids;
+                                                ids = [];
+                                                is_practice = false;
+                                                show = true;
+                                              } :: exam_list
     (* ignore everything else *)
     | `Playlist _                          -> exam_list
     | `Video _                             -> exam_list
@@ -155,15 +159,16 @@ let populate_exam_ids (exam: exam) (playlists: playlist list) : exam =
 
 let exams_to_json_list exams =
   let string_list_to_json_list l = `List (List.map ~f:(fun s -> `String s) l) in
-  let exam_to_json {title; id; seed; playlist_ids; ids; repeats; is_practice} = `Assoc [("id", `String id);
-                                                                                        ("title", `String title);
-                                                                                        ("seed", `Int seed);
-                                                                                        ("playlist_ids", string_list_to_json_list playlist_ids);
-                                                                                        ("repeats", `String repeats);
-                                                                                        ("ids", string_list_to_json_list ids);
-                                                                                        ("is_practice", `Bool is_practice);
-                                                                                        ]
-                                                                                      in
+  let exam_to_json {title; id; seed; playlist_ids; ids; repeats; is_practice; show} = `Assoc [("id", `String id);
+                                                                                              ("title", `String title);
+                                                                                              ("seed", `Int seed);
+                                                                                              ("playlist_ids", string_list_to_json_list playlist_ids);
+                                                                                              ("repeats", `String repeats);
+                                                                                              ("ids", string_list_to_json_list ids);
+                                                                                              ("is_practice", `Bool is_practice);
+                                                                                              ("show", `Bool show);
+                                                                                             ]
+  in
 
   List.map ~f:exam_to_json exams
 
