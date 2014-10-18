@@ -13,6 +13,7 @@ type playlist = { title: string;
                   tag: string;
                   entries: playlist_entry list;
                   show: bool;
+                  unit: int
                 }
 
 type exam = { title: string;
@@ -25,7 +26,7 @@ type exam = { title: string;
               show: bool;
             }
 
-exception Unrecognized_line of string list
+exception Unrecognized_line of string
 exception Invalid_csv of string
 exception Invalid_json_format of Yojson.Basic.json
 
@@ -64,12 +65,13 @@ let playlist_entry_to_json sort_order = function
                           ("entity_kind", `String "Quiz")]
 
 (* Convert a playlist to a JSON data structure that Yojson can accept. Add in the sort_order here too *)
-let playlist_to_json {title; entries; id; tag; show} =
+let playlist_to_json {title; entries; id; tag; show; unit} =
   let entries_to_json = `List (List.mapi ~f:playlist_entry_to_json entries)
   in `Assoc [("title", `String title);
              ("id", `String id);
              ("tag", `String tag);
              ("show", `Bool show);
+             ("unit", `Int unit);
              ("entries", entries_to_json)]
 
 let playlists_to_json_list l = List.map ~f:playlist_to_json l
@@ -77,11 +79,11 @@ let playlists_to_json_list l = List.map ~f:playlist_to_json l
 (*  *)
 (* Functions for reading the CSV into a list of playlists *)
 (*  *)
-let parse_broken_line_to_ir kind title playlist_id exam_id repeats essentiality =
-  if contains title "Playlist" then `Playlist (playlist_id, title)
+let parse_broken_line_to_ir kind title playlist_id exam_id repeats essentiality unit =
+  if contains title "Playlist" then `Playlist (playlist_id, title, unit)
   else if contains title "Baseline Exam" then `Exam (title, playlist_id, exam_id, repeats)
   else if contains title "Mid Year Exam" then `Exam (title, playlist_id, exam_id, repeats)
-  else if contains kind "Playlist" then `Playlist (playlist_id, kind)
+  else if contains kind "Playlist" then `Playlist (playlist_id, kind, unit)
   else if contains kind "Video" then `Video (title, essentiality)
   else if contains kind "Exercise" then `Exercise (title, essentiality)
   else if contains title "Quiz" then `Quiz playlist_id
@@ -93,8 +95,9 @@ let parse_broken_line_to_ir kind title playlist_id exam_id repeats essentiality 
 
 let parse_csv_line_to_ir (line: string list) =
   match line with
-  | kind :: title:: playlist_id :: exam_id :: essentiality :: repeats :: _ -> parse_broken_line_to_ir kind title playlist_id exam_id repeats essentiality
-  | _ -> raise (Unrecognized_line line)
+  | kind :: title:: playlist_id :: exam_id :: essentiality :: repeats :: unit :: _ -> parse_broken_line_to_ir kind title playlist_id exam_id repeats essentiality unit
+  | _ -> let errline: string = String.concat ~sep:", " line in
+         raise (Unrecognized_line errline)
 
 let parse_csv_to_ir (csv: Csv.t) = List.map ~f:parse_csv_line_to_ir csv
                                    |> List.filter ~f:(fun x -> not (x = `Blank))
@@ -102,10 +105,10 @@ let parse_csv_to_ir (csv: Csv.t) = List.map ~f:parse_csv_line_to_ir csv
 let parse_ir_list_to_playlists tag ir_list =
   let parse_first_entry_as_playlist (pl :: ir_list) =
     match pl with
-    | `Playlist (id, title) -> ({ id = id; title = title; entries = []; tag = tag; show = true } :: [], ir_list)
-    | _                     -> raise (Invalid_csv "First non-blank entry is not a playlist description") in
+    | `Playlist (id, title, unit)     -> ({ id = id; title = title; entries = []; tag = tag; show = true; unit = (Printf.printf "%s\n" id; Int.of_string unit); } :: [], ir_list)
+    | _                               -> raise (Invalid_csv "First non-blank entry is not a playlist description") in
   let parse_ir_to_playlist (current_playlist :: playlists) = function
-    | `Playlist (id, title)           -> { id = id; title = title; entries = []; tag = tag; show = true } :: current_playlist :: playlists
+    | `Playlist (id, title, unit)     -> { id = id; title = title; entries = []; tag = tag; show = true; unit = (Printf.printf "%s\n" id; Int.of_string unit) } :: current_playlist :: playlists
     | `Video (title, essentiality)    ->
        let is_essential = essentiality = "E" in
        { current_playlist with entries = (Video (title, is_essential) :: current_playlist.entries) } :: playlists
@@ -120,7 +123,6 @@ let parse_ir_list_to_playlists tag ir_list =
   let reverse_playlists_to_proper_order pl_list = List.map ~f:reverse_entries_to_proper_order pl_list |> List.rev in
   let accum, rest = parse_first_entry_as_playlist ir_list
   in
-
   List.fold ~init:accum ~f:parse_ir_to_playlist rest |> reverse_playlists_to_proper_order
 
 let parse_ir_list_to_exams ir_list =
@@ -220,12 +222,13 @@ let main () =
   let (grade5_playlists, grade5_exams, grade5_playlist_json, grade5_exam_json) = parse_csv_to_json "data/grade5.csv" "Grade 5" grade4_playlists in
   let (grade6_playlists, grade6_exams, grade6_playlist_json, grade6_exam_json) = parse_csv_to_json "data/grade6.csv" "Grade 6" grade5_playlists in
 
-  (* Add in the midyear exams from the new spreadsheets *)
-  let (_, grade4_midyear_exams, _, grade4_midyear_exam_json) = parse_csv_to_json "data/grade4-midyear-exams.csv" "Grade 4" [] in
-  let (_, grade5_midyear_exams, _, grade5_midyear_exam_json) = parse_csv_to_json "data/grade5-midyear-exams.csv" "Grade 5" [] in
-  let (_, grade6_midyear_exams, _, grade6_midyear_exam_json) = parse_csv_to_json "data/grade6-midyear-exams.csv" "Grade 6" [] in
+  (* (\* Add in the midyear exams from the new spreadsheets *\) *)
+  (* let (_, grade4_midyear_exams, _, grade4_midyear_exam_json) = parse_csv_to_json "data/grade4-midyear-exams.csv" "Grade 4" [] in *)
+  (* let (_, grade5_midyear_exams, _, grade5_midyear_exam_json) = parse_csv_to_json "data/grade5-midyear-exams.csv" "Grade 5" [] in *)
+  (* let (_, grade6_midyear_exams, _, grade6_midyear_exam_json) = parse_csv_to_json "data/grade6-midyear-exams.csv" "Grade 6" [] in *)
   let playlist_jsons = List.concat [grade3_playlist_json; grade4_playlist_json; grade5_playlist_json; grade6_playlist_json] in
-  let exam_jsons = List.concat [grade3_exam_json; grade4_exam_json; grade5_exam_json; grade6_exam_json; grade4_midyear_exam_json; grade5_midyear_exam_json; grade6_midyear_exam_json;] in
+  (* let exam_jsons = List.concat [grade3_exam_json; grade4_exam_json; grade5_exam_json; grade6_exam_json; grade4_midyear_exam_json; grade5_midyear_exam_json; grade6_midyear_exam_json;] in *)
+  let exam_jsons = List.concat [grade3_exam_json; grade4_exam_json; grade5_exam_json; grade6_exam_json;] in
 
   save_to_playlist_file playlist_jsons;
   save_jsons_to_file exam_jsons
