@@ -216,8 +216,7 @@ let save_to_playlist_file j =
 (* Main functions to kick things off and bring it all together *)
 (*  *)
 let main () =
-  let (grade3_playlists, grade3_exams, grade3_playlist_json, grade3_exam_json) = parse_csv_to_json "data/grade3.csv" "Grade 3" [] in
-  let (grade4_playlists, grade4_exams, grade4_playlist_json, grade4_exam_json) = parse_csv_to_json "data/grade4.csv" "Grade 4" grade3_playlists in
+  let (grade4_playlists, grade4_exams, grade4_playlist_json, grade4_exam_json) = parse_csv_to_json "data/grade4.csv" "Grade 4" [] in
   let (grade5_playlists, grade5_exams, grade5_playlist_json, grade5_exam_json) = parse_csv_to_json "data/grade5.csv" "Grade 5" grade4_playlists in
   let (grade6_playlists, grade6_exams, grade6_playlist_json, grade6_exam_json) = parse_csv_to_json "data/grade6.csv" "Grade 6" grade5_playlists in
 
@@ -225,9 +224,9 @@ let main () =
   (* let (_, grade4_midyear_exams, _, grade4_midyear_exam_json) = parse_csv_to_json "data/grade4-midyear-exams.csv" "Grade 4" [] in *)
   (* let (_, grade5_midyear_exams, _, grade5_midyear_exam_json) = parse_csv_to_json "data/grade5-midyear-exams.csv" "Grade 5" [] in *)
   (* let (_, grade6_midyear_exams, _, grade6_midyear_exam_json) = parse_csv_to_json "data/grade6-midyear-exams.csv" "Grade 6" [] in *)
-  let playlist_jsons = List.concat [grade3_playlist_json; grade4_playlist_json; grade5_playlist_json; grade6_playlist_json] in
+  let playlist_jsons = List.concat [grade4_playlist_json; grade5_playlist_json; grade6_playlist_json] in
   (* let exam_jsons = List.concat [grade3_exam_json; grade4_exam_json; grade5_exam_json; grade6_exam_json; grade4_midyear_exam_json; grade5_midyear_exam_json; grade6_midyear_exam_json;] in *)
-  let exam_jsons = List.concat [grade3_exam_json; grade4_exam_json; grade5_exam_json; grade6_exam_json;] in
+  let exam_jsons = List.concat [grade4_exam_json; grade5_exam_json; grade6_exam_json;] in
 
   save_to_playlist_file playlist_jsons;
   save_jsons_to_file exam_jsons
