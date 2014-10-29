@@ -32,9 +32,8 @@ exception Invalid_json_format of Yojson.Basic.json
 
 (* Substring check. Gahd i can't believe this isn't in the std lib *)
 let contains s1 s2 =
-  let re = Str.regexp_string s2
-  in try ignore (Str.search_forward re s1 0); true
-     with Not_found -> false
+  let re = Str.regexp s2
+  in Str.string_match re s1 0
 
 let sanitize_slug id = Str.split (Str.regexp "/") id |> List.last_exn
 
@@ -88,7 +87,7 @@ let parse_broken_line_to_ir kind title playlist_id exam_id repeats essentiality 
   else if contains kind "Exercise" then `Exercise (title, essentiality)
   else if contains title "Quiz" then `Quiz playlist_id
   else if contains title "Subtitle" then `Divider title
-  else if contains title "Unit Test" then
+  else if contains title ".*Unit.*Test" then
     if repeats <> "" then `Exam (title, playlist_id, exam_id, repeats)
     else raise (Invalid_csv (Printf.sprintf "Empty repeat field for %s\n" exam_id))
   else `Blank
