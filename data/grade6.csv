@@ -1,6 +1,6 @@
 Index,Link,Playlist ID,Unit test ID,Optional / Essential (O/E),number of cycles,Unit
 ,,,,,,
-,Grade 6 Unit 1: Playlist 1 -Negative Number,g6_u1_p1,,,,1
+,Playlist 1: Negative Number,g6_u601_p1,,,,101
 Exercise 1,/e/number_line_2/,,,E,,
 Exercise 2,/e/number_line_3/,,,E,,
 Exercise 3,/e/ordering_negative_numbers/,,,E,,
@@ -9,57 +9,57 @@ Exercise 5,/e/adding_and_subtracting_negative_numbers/,,,E,,
 Exercise 6,/e/negative_number_word_problems/,,,E,,
 Exercise 7,/e/multiplying_and_dividing_negative_numbers/,,,E,,
 ,,,,,,
-,Grade 6 Unit 1 Playlist 2 - Algebraic expressions,g6_u1_p2,,E,,1
-Exercise 1,/e/writing-expressions/,,,E,,
-Exercise 2,/e/writing-expressions-2/,,,E,,
+,Playlist 2: Algebraic expressions,g6_u601_p2,,E,,101
+Exercise 1,/e/writing_expressions_1/,,,E,,
+Exercise 2,/e/writing_expressions_2/,,,E,,
 Exercise 3,/e/evaluating_expressions_in_one_variable/,,,E,,
 ,,,,,,
-,Grade 6 Unit Test 1,"g6_u1_p1,g6_u1_p2",g6_u1_t1,E,2,
+,Grade 6 Unit 601 Test,"g6_u601_p1,g6_u601_p2",g6_u601_t1,E,2,
 ,,,,,,
-,Grade 6 Unit 2 Playlist 1: Algebraic Equations,g6_u2_p1,,E,,2
-Exercise 1,/e/evaluating-expressions_in_2_variables/,,,E,,
-Exercise 2,/e/combining-like-terms/,,,E,,
-Exercise 3,/e/combining-like-terms-with-distribution/,,,E,,
-Exercise 4,/e/one-step-equations/,,,E,,
-Exercise 5,/e/2-step-equations/,,,E,,
-Exercise 6,/e/ One-step equations-with-multiplication/,,,E,,
+,Playlist 1: Algebraic Equations,g6_u602_p1,,E,,102
+Exercise 1,/e/evaluating_expressions_2/,,,E,,
+Exercise 2,/e/combining_like_terms_1/,,,E, ,
+Exercise 3,/e/combining_like_terms_2/,,,E,,
+Exercise 4,/e/one_step_equations/,,,E,,
+Exercise 5,/e/2_step_equations/,,,E,,
+Exercise 6,/e/one_step_equations_with_multiplication/,,,E,,
 ,,,,,,
 ,,,,,,
-,Grade 6 Unit 2 Playlist 2 Conversion of Fractions to Decimal and percentage,g6_u2_p2,,E,,2
+,Playlist 2: Conversion of Fractions to Decimal and percentage,g6_u602_p2,,E,,102
 Exercise 1,/e/converting_fractions_to_decimals/,,,E,,
 Exercise 2,e/converting_decimals_to_fractions_1/,,,E,,
 Exercise 3,/e/converting_decimals_to_fractions_2/,,,E,,
 Exercise 4,/e/converting_decimals_to_percents/,,,E,,
 Exercise 5,/e/converting_percents_to_decimals/,,,E,,
 Exercise 6,/e/finding_percents/,,,E,,
-,Grade 6 Unit Test 2,"g6_u2_p1,g6_u2_p2",g6_u2_t2,E,3,
+,Grade 6 Unit 602 Test,"g6_u602_p1,g6_u602_p2",g6_u602_t2,E,3,
 ,,,,,,
-,"Grade 6 Unit 3 Playlist 1: Angles,lines and rays Part 1",g6_u3_p1,,E,,3
-Exercise 1,/recognizing-rays-lines-linesegments/,,,E,,
+,"Playlist 1: Angles,lines and rays Part 1",g6_u603_p1,,E,,103
+Exercise 1,/e/recognizing_rays_lines_and_line_segments/,,,E,,
 Exercise 2,/e/points_lines_and_planes/,,,E,,
 Exercise 3,/e/measuring_angles/,,,E,,
 Exercise 4,/e/angle_types/,,,E,,
 Exercise 5,/e/exploring_angle_pairs_1/,,,E,,
 ,,,,,,
-,Grade 6 Unit 3 Playlist 2: Angles Part 2,g6_u3_p2,,E,,3
+,Playlist 2: Angles Part 2,g6_u603_p2,,E,,103
 Exercise 1,/e/complementary_and_supplementary_angles/,,,E,,
 Exercise 2,/e/vertical_angles/,,,E,,
 Exercise 3,/e/vertical_angles_2/,,,E,,
 Exercise 4,/e/congruent_angles/,,,E,,
 Exercise 5,/e/parallel_lines_1/,,,E,,
-,Grade 6 Unit Test 3,"g6_u3_p1,g6_u3_p2",g6_u3_t3,E,3,
+,Grade 6 Unit 603 Test,"g6_u603_p1,g6_u603_p2",g6_u603_t3,E,3,
 ,,,,,,
-,Grade 6 Unit 4 Playlist 1: Triangles and Circles,g6_u4_p1,,E,,4
+,Playlist 1: Triangles and Circles,g6_u604_p1,,E,,104
 Exercise 1,/e/angles_1/,,,E,,
-Exercise 2,/e/triangle-types/,,,E,,
-Exercise 3,/e/triangle-angles-1/,,,E,,
+Exercise 2,/e/triangle_types/,,,E,,
+Exercise 3,/e/triangle_angles_1/,,,E,,
 Exercise 4,/e/circles_and_arcs/,,,E,,
 Exercise 5,/e/areas_of_circles_and_sectors/,,,E,,
 ,,,,,,
-,Grade 6 Unit 4 Playlist 2 Ratio and Proportions,g6_u4_p2,,E,,4
+,Playlist 2: Ratio and Proportions,g6_u604_p2,,E,,104
 Exercise 1,/e/expressing_ratios_as_fractions/,,,E,,
 Exercise 2,/e/ratio_word_problems/,,,E,,
-Exercise 3,/e/writing-proportions/,,,E,,
-Exercise 4,/e/proportions-1/,,,E,,
-Exercise 5,/e/proportions-2/,,,E,,
-,Grade 6 Unit Test 4,"g6_u4_p1,g6_u4_p2",g6_u4_t4,E,3,
+Exercise 3,/e/writing_proportions/,,,E,,
+Exercise 4,/e/proportions_1/,,,E,,
+Exercise 5,/e/proportions_2/,,,E,,
+,Grade 6 Unit 604 Test,"g6_u604_p1,g6_u604_p2",g6_u604_t4,E,3,
