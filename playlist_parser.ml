@@ -177,7 +177,7 @@ let add_practice_exams exams =
   let make_practice_exam exam = {exam with id = Printf.sprintf "%s_practice" exam.id;
                                            is_practice = true;
                                            title = Printf.sprintf "%s - Practice" exam.title} in
-  let practice_exams = List.filter ~f:(fun e -> contains e.title "Unit Test") exams |> List.map ~f:(fun x -> make_practice_exam x |> add_seed_from_hashed_id) in
+  let practice_exams = List.filter ~f:(fun e -> contains e.title ".*Unit.*Test") exams |> List.map ~f:(fun x -> make_practice_exam x |> add_seed_from_hashed_id) in
 
   exams @ practice_exams
 
